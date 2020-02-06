@@ -19,7 +19,7 @@ RUN wget --quiet https://repo.anaconda.com/archive/Anaconda2-2019.07-Linux-x86_6
     /usr/local/opt/conda/bin/conda clean -afy
 
 ## python basemap, basemap-data-hires, matplotlib
-RUN /usr/local/opt/conda/bin/conda install -y matplotlib basemap
+RUN /usr/local/opt/conda/bin/conda install -y matplotlib basemap basemap-data-hires
 
 RUN cp -f /app/etc/profile.d/bash_ucvm.sh /etc/profile.d/bash_ucvm.sh && \
     echo ". /etc/profile.d/bash_ucvm.sh" >> ~/.bashrc && \
