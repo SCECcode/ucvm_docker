@@ -23,6 +23,7 @@ RUN /usr/local/opt/conda/bin/conda install -y matplotlib basemap basemap-data-hi
 
 RUN cp -f /app/etc/profile.d/bash_ucvm.sh /etc/profile.d/bash_ucvm.sh && \
     echo ". /etc/profile.d/bash_ucvm.sh" >> ~/.bashrc && \
-    /bin/bash /app/run-build-UCVMC.sh
+    /bin/bash /app/run-build-UCVMC.sh && \
+    rm -rf UCVMC
 
 CMD [ "/bin/bash" ]

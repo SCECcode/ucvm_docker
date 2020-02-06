@@ -6,7 +6,7 @@ docker image build -t miniucvm:1.0 .
 ## running container from image
 
 mkdir target
-docker run --rm -it --mount type=bind,source="$(pwd)"/target,destination=/app  miniucvm:1.0
+docker run --rm -it --mount type=bind,source="$(pwd)"/target,destination=/app/target  miniucvm:1.0
 
 ## manipulate the container
 
