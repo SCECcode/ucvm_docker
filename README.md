@@ -5,7 +5,7 @@
 Docker is an open-source platform to build, ship, and run applications, whether on laptops, data center virtual machines, or the cloud with OS-level virtualization. 
 
 Please read the official <a href="http://docs.docker.com">official Docker documentation</a> 
-and specifically the <a href="https://docs.docker.com/engine/reference/commandline/images/">Docker images</a>
+and specifically the <a href="https://docs.docker.com/engine/reference/commandline/images/">Docker images</a> to setup your docker installation and step through the quick start guide.
 
 ## miniucvm
 
