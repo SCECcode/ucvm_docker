@@ -1,12 +1,14 @@
 # miniucvm
 
-## search for SCECimage:
+## search for images:
 
     docker search sceccode
 
 ## build an image
 
-    docker image build -t sceccode/miniucvm:1.0 .
+    docker image build -t miniucvm .
+    docker tag miniucvm sceccode/miniucvm:1.0
+    docker push sceccode/miniucvm:1.0
 
 ## running container from an image with a local host 'target' directlry: 
 
