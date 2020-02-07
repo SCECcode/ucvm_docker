@@ -1,6 +1,6 @@
 FROM  amazonlinux
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
-ENV UCVM_SRC_PATH=/app/UCVMC UCVM_INSTALL_PATH=/usr/local/opt/ucvm LD_LIBRARY_PATH=%{UCVM_INSTALL_PATH}/lib/euclid3/lib:%{UCVM_INSTALL_PATH}/lib/proj-5/lib:%{UCVM_INSTALL_PATH}/model/cvms/lib:%{UCVM_INSTALL_PATH}/model/cvms5/lib:%{UCVM_INSTALL_PATH}/model/cvms426/lib
+ENV UCVM_SRC_PATH=/app/UCVMC UCVM_INSTALL_PATH=/usr/local/opt/ucvm LD_LIBRARY_PATH=/usr/local/opt/ucvm/lib/euclid3/lib:/usr/local/opt/ucvm/lib/proj-5/lib:/usr/local/opt/ucvm/model/cvms/lib:/usr/local/opt/ucvm/model/cvms5/lib:/usr/local/opt/ucvm/model/cvms426/lib
 
 WORKDIR /app
 COPY . /app
@@ -21,11 +21,11 @@ RUN wget --quiet https://repo.anaconda.com/archive/Anaconda2-2019.07-Linux-x86_6
 ## python basemap, basemap-data-hires, matplotlib
 RUN /usr/local/opt/conda/bin/conda install -y matplotlib basemap basemap-data-hires
 
-RUN cp -f /app/etc/profile.d/bash_ucvm.sh /etc/profile.d/bash_ucvm.sh && \
+RUN 
+echo /bin/bash /app/run-build-UCVMC.sh && \
+    cp -f /usr/local/opt/ucvm/conf/bash_ucvm.sh /etc/profile.d/bash_ucvm.sh && \
     echo ". /etc/profile.d/bash_ucvm.sh" >> ~/.bashrc && \
-    echo "cd ~/target" >> ~/.bashrc && \
-    /bin/bash /app/run-build-UCVMC.sh
-#    /bin/bash /app/run-build-UCVMC.sh && \
-#    rm -rf UCVMC
+    echo "cd /app/target" >> ~/.bashrc && \
+    rm -rf UCVMC
 
 CMD [ "/bin/bash" ]

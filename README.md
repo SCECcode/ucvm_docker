@@ -5,7 +5,7 @@
 Docker is an open-source platform to build, ship, and run applications, whether on laptops, data center virtual machines, or the cloud with OS-level virtualization. 
 
 Please read the official <a href="http://docs.docker.com">Docker documentation</a> 
-and specifically the <a href="https://docs.docker.com/engine/reference/commandline/images/">Docker images</a> to setup your docker installation and step through the quick start guide.
+and specifically the <a href="https://docs.docker.com/engine/reference/commandline/images/">Docker images</a> to setup your docker installation and step through the quickstart guide.
 
 ## miniucvm specification
 
@@ -24,8 +24,8 @@ and specifically the <a href="https://docs.docker.com/engine/reference/commandli
 
     cp ../examples/*.sh .
     chmod og+x *.sh
-    ./run_ucvm_plot.sh
-    ./run_ucvm_query.sh
+    ./run-ucvm-plot.sh
+    ./run-ucvm-query.sh
     exit
 
 

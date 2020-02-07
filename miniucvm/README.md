@@ -42,8 +42,8 @@
     docker rmi $(docker images -f dangling=true -q )
     docker rmi $(docker images -f dangling=true -q ) -f
 
-    docker rmi miniucvm:1.0 
-    docker rmi miniucvm:1.0 -f 
+    docker rmi miniucvm 
+    docker rmi miniucvm -f 
 
 ## deep cleaning images & volumes
 
