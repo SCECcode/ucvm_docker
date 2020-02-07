@@ -17,7 +17,13 @@
 
     mkdir target
     docker run --rm -it --mount type=bind,source="$(pwd)"/target,destination=/app/target  sceccode/miniucvm:1.0
-    
+   
+   If encounter the following error,
+   
+     Error response from daemon: invalid mount config for type "bind" : bind source path does not exist
+     
+   Please check your docker preference for 'File Sharing' to see if your current working directory is mountable
+     
 ## to test the container
 
     cp ../examples/*.sh .
