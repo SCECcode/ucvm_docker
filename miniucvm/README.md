@@ -1,12 +1,25 @@
+# miniucvm
 
-## building image
+## search for SCEC image:
 
-docker image build -t miniucvm:1.0 .
+docker search sceccode
 
-## running container from image
+## build an image
+
+docker image build -t sceccode/miniucvm:1.0 .
+
+## running container from an image with a local host 'target' directlry: 
 
 mkdir target
-docker run --rm -it --mount type=bind,source="$(pwd)"/target,destination=/app/target  miniucvm:1.0
+docker run --rm -it --mount type=bind,source="$(pwd)"/target,destination=/app/target  sceccode/miniucvm:1.0
+
+## to test the container
+
+cp ../examples/*.sh .
+chmod og+x *.sh
+
+./run_ucvm_plot.sh
+./run_ucvm_query.sh
 
 ## manipulate the container
 

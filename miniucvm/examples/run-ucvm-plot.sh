@@ -6,7 +6,7 @@ if [ -z "$UCVM_INSTALL_PATH" ]; then
 fi
 
 CWD=`pwd`
-LABEL=cvmh_horizontal_slice_vs
+LABEL=cvms5_horizontal_slice_vs
 LAT1=33.35
 LON1=-118
 LAT2=34.35

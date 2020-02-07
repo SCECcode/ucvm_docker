@@ -1,6 +1,6 @@
 FROM  amazonlinux
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
-ENV UCVM_SRC_PATH=/app/UCVMC UCVM_INSTALL_PATH=/app/UCVMC_TARGET LD_LIBRARY_PATH=/app/UCVMC_TARGET/lib/euclid3/lib:/app/UCVMC_TARGET/lib/proj-5/lib:/app/UCVMC_TARGET/model/cvms/lib:/app/UCVMC_TARGET/model/cvms5/lib:/app/UCVMC_TARGET/model/cvms426/lib
+ENV UCVM_SRC_PATH=/app/UCVMC UCVM_INSTALL_PATH=/usr/local/opt/ucvm LD_LIBRARY_PATH=%{UCVM_INSTALL_PATH}/lib/euclid3/lib:%{UCVM_INSTALL_PATH}/lib/proj-5/lib:%{UCVM_INSTALL_PATH}/model/cvms/lib:%{UCVM_INSTALL_PATH}/model/cvms5/lib:%{UCVM_INSTALL_PATH}/model/cvms426/lib
 
 WORKDIR /app
 COPY . /app
@@ -23,7 +23,9 @@ RUN /usr/local/opt/conda/bin/conda install -y matplotlib basemap basemap-data-hi
 
 RUN cp -f /app/etc/profile.d/bash_ucvm.sh /etc/profile.d/bash_ucvm.sh && \
     echo ". /etc/profile.d/bash_ucvm.sh" >> ~/.bashrc && \
-    /bin/bash /app/run-build-UCVMC.sh && \
-    rm -rf UCVMC
+    echo "cd ~/target" >> ~/.bashrc && \
+    /bin/bash /app/run-build-UCVMC.sh
+#    /bin/bash /app/run-build-UCVMC.sh && \
+#    rm -rf UCVMC
 
 CMD [ "/bin/bash" ]

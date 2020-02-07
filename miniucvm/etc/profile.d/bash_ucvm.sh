@@ -2,7 +2,7 @@
 ##       cvms/cvms/cvms4.tar.gz/CVM-S4
 ##       cvms5/cvms5/cvms5.tar.gz/CVM-S4.26
 ##       cvms426/cvmsi/cvms426.tar.gz/CVM-S4.26.M01
-export UCVM_INSTALL_PATH=/app/UCVMC_TARGET
+export UCVM_INSTALL_PATH=/usr/local/opt/ucvm
 
 if [ -n "$LD_LIBRARY_PATH" ] ; then
   export LD_LIBRARY_PATH="${UCVM_INSTALL_PATH}/lib/euclid3/lib:${UCVM_INSTALL_PATH}/lib/proj-5/lib:${UCVM_INSTALL_PATH}/model/cvms/lib:${UCVM_INSTALL_PATH}/model/cvms5/lib:${UCVM_INSTALL_PATH}/model/cvms426/lib:${LD_LIBRARY_PATH}"
