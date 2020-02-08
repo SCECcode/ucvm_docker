@@ -27,6 +27,10 @@ and specifically the <a href="https://docs.docker.com/engine/reference/commandli
     chmod og+x *.sh
     ./run-ucvm-plot.sh
     ./run-ucvm-query.sh
+    
+### End a miniucvm bash session
+
+    exit
    
 
 
