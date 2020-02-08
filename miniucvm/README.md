@@ -7,9 +7,6 @@
 ## build an image
 
     docker image build -t miniucvm .
-    docker tag miniucvm mpihuisu/miniucvm:2.0
-    docker push mpihuisu/miniucvm:1.0
-
     docker tag miniucvm sceccode/miniucvm:1.0
     docker push sceccode/miniucvm:1.0
 

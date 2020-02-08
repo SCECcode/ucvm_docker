@@ -18,7 +18,7 @@ and specifically the <a href="https://docs.docker.com/engine/reference/commandli
 ### Start a bash session
 
     mkdir target
-    docker run --rm -it --mount type=bind,source="$(pwd)"/target,destination=/app/target  mpihuisu/miniucvm:1.0
+    docker run --rm -it --mount type=bind,source="$(pwd)"/target,destination=/app/target  sceccode/miniucvm:1.0
 
 ### Test ucvm
 
