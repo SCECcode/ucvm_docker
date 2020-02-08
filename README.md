@@ -7,7 +7,9 @@ Docker is an open-source platform to build, ship, and run applications, whether 
 Please read the official <a href="http://docs.docker.com">Docker documentation</a> 
 and specifically the <a href="https://docs.docker.com/engine/reference/commandline/images/">Docker images</a> to setup your docker installation and step through the quickstart guide.
 
-## miniucvm specification
+## miniucvm
+
+### Specification
 
 *  UCVMC v19.4  https://github.com/SCECcode/UCVMC
 *  Anaconda2 (conda 4.8.2, python 2.7.16)
