@@ -11,21 +11,20 @@ and specifically the <a href="https://docs.docker.com/engine/reference/commandli
 
 *  UCVMC v19.4  https://github.com/SCECcode/UCVMC
 *  Anaconda2 (conda 4.8.2, python 2.7.16)
-*  Included CVMs: CVM-S4, CVM-S4.26, CVM-S4.26M01
+*  CVMs: CVM-S4, CVM-S4.26, CVM-S4.26M01
 
-## Running miniucvm
 
-### Start a bash session
+### Start a miniucvm bash session
 
     mkdir target
     docker run --rm -it --mount type=bind,source="$(pwd)"/target,destination=/app/target  sceccode/miniucvm:1.0
 
-### Test ucvm
+### Test miniucvm
 
     cp ../examples/*.sh .
     chmod og+x *.sh
     ./run-ucvm-plot.sh
     ./run-ucvm-query.sh
-    exit
+   
 
 
