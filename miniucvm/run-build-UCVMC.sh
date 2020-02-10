@@ -1,6 +1,6 @@
 #!/bin/bash
 
-git clone https://github.com/SCECcode/UCVMC.git -b forDocker 
+git clone https://github.com/SCECcode/UCVMC.git 
 
 mkdir -p $UCVM_INSTALL_PATH
 
@@ -11,9 +11,9 @@ n
 n
 n
 y
+n
+n
 y
-n
-n
 EOF
 
 cd $UCVM_SRC_PATH/largefiles; ./check_largefiles_md5.py

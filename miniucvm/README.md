@@ -1,9 +1,5 @@
 # miniucvm
 
-## search for images:
-
-    docker search sceccode
-
 ## build an image
 
     docker image build -t miniucvm .
@@ -48,4 +44,6 @@
     docker system prune -a -f --volumes
     docker volume rm target
 
+## search for images:
 
+    docker search sceccode

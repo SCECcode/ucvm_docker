@@ -11,7 +11,7 @@ and specifically the <a href="https://docs.docker.com/engine/reference/commandli
 
 *  UCVMC v19.4  https://github.com/SCECcode/UCVMC
 *  Anaconda2 (conda 4.8.2, python 2.7.16)
-*  Included CVMs: CVM-S4, CVM-S4.26, CVM-S4.26M01
+*  Included CVMs: CVM-S4, CVM-S4.26, CVM-H v15.1
 
 ## Running miniucvm
 

@@ -1,6 +1,6 @@
 FROM  amazonlinux
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
-ENV UCVM_SRC_PATH=/app/UCVMC UCVM_INSTALL_PATH=/usr/local/opt/ucvm LD_LIBRARY_PATH=/usr/local/opt/ucvm/lib/euclid3/lib:/usr/local/opt/ucvm/lib/proj-5/lib:/usr/local/opt/ucvm/model/cvms/lib:/usr/local/opt/ucvm/model/cvms5/lib:/usr/local/opt/ucvm/model/cvms426/lib
+ENV UCVM_SRC_PATH=/app/UCVMC UCVM_INSTALL_PATH=/usr/local/opt/ucvm LD_LIBRARY_PATH=/usr/local/opt/ucvm/lib/euclid3/lib:/usr/local/opt/ucvm/lib/proj-5/lib:/usr/local/opt/ucvm/model/cvms/lib:/usr/local/opt/ucvm/model/cvms5/lib:/usr/local/opt/ucvm/model/cvmh1511/lib
 
 WORKDIR /app
 COPY . /app
