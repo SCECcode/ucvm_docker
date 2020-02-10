@@ -6,7 +6,7 @@
     docker tag miniucvm sceccode/miniucvm:1.0
     docker push sceccode/miniucvm:1.0
 
-## running container from an image with a local host 'target' directlry: 
+## running container from an image with a local host 'target' directory: 
 
     mkdir target
     docker run --rm -it --mount type=bind,source="$(pwd)"/target,destination=/app/target  sceccode/miniucvm:1.0
