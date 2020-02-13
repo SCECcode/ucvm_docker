@@ -1,15 +1,13 @@
-# miniucvm
+# testucvm
 
 ## build an image
 
-    docker image build -t miniucvm .
-    docker tag miniucvm sceccode/miniucvm:1.0
-    docker push sceccode/miniucvm:1.0
+    docker image build -t testucvm .
 
 ## running container from an image with a local host 'target' directory: 
 
     mkdir target
-    docker run --rm -it --mount type=bind,source="$(pwd)"/target,destination=/app/target  sceccode/miniucvm:1.0
+    docker run --rm -it --mount type=bind,source="$(pwd)"/target,destination=/app/target  testucvm
    
    If encounter the following error,
    
@@ -35,8 +33,8 @@
     docker rmi $(docker images -f dangling=true -q )
     docker rmi $(docker images -f dangling=true -q ) -f
 
-    docker rmi miniucvm 
-    docker rmi miniucvm -f 
+    docker rmi testucvm 
+    docker rmi testucvm -f 
 
 ## deep cleaning images & volumes
 

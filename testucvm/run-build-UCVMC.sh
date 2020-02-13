@@ -10,8 +10,8 @@ y
 y
 n
 n
-y
-y
+n
+n
 n
 n
 EOF
