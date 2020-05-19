@@ -7,7 +7,7 @@ mkdir -p $UCVM_INSTALL_PATH
 cd $UCVM_SRC_PATH/largefiles
 ./get_large_files.py << EOF
 y
-y
+n
 n
 n
 n
