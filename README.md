@@ -33,4 +33,8 @@ and specifically the <a href="https://docs.docker.com/engine/reference/commandli
     exit
    
 
+##### Docker for Mac
+
+    Resource limit is set to 2GB by default. This can be changed in 
+    Docker->preference->advanced
 
