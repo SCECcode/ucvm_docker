@@ -1,6 +1,7 @@
 #!/bin/bash
 
 echo "++++++++++++++++++++++++++++++++++"
+echo $PATH
 which python
 python -V
 echo "++++++++++++++++++++++++++++++++++"
@@ -26,6 +27,7 @@ cd $UCVM_SRC_PATH/largefiles; ./stage_large_files.py
 
 cd $UCVM_SRC_PATH
 ./ucvm_setup.py -d -a << EOF &> ucvm_setup_install.log
+$UCVM_INSTALL_PATH
 EOF
 
 if [ -e $UCVM_SRC_PATH/bash_ucvm.sh ] 
