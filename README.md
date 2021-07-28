@@ -13,11 +13,13 @@ Each subdirectory here contains a slightly different dockerized version of UCVM.
 ## ucvm_docker
 This is the most recent version of ucvm. It includes the base ucvm, plus one model per image. These images have been pushed to dockerhub and they are the preferred dockerized version. They do not include the python plotting libraries.
 
+There is an associated collection of files in ucvm_docker_files. This contains subdirectories that include model files as tgz files, and other large files. These other files, can be retrieved from hypocenter, but they are staged locally during the docker build to make the build process go faster
+
 ## miniucvm
 This was the first containerized version of UCVM created by the group. It showed proof of concept and a working Dockerfile
 
 ## py3ucvm
-This is the python3 version of ucvm in a docker container. No longer supported.
+This is the python3 version of ucvm in a docker container.
 
 ### Specification
 
