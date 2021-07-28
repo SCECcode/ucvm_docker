@@ -7,7 +7,17 @@ Docker is an open-source platform to build, ship, and run applications, whether 
 Please read the official <a href="http://docs.docker.com">Docker documentation</a> 
 and specifically the <a href="https://docs.docker.com/engine/reference/commandline/images/">Docker images</a> to setup your docker installation and step through the quickstart guide.
 
+## Contents of Repo
+Each subdirectory here contains a slightly different dockerized version of UCVM. As a result, the Dockerfiles used to construct the images are somewhat different. 
+
+## ucvm_docker
+This is the most recent version of ucvm. It includes the base ucvm, plus one model per image. These images have been pushed to dockerhub and they are the preferred dockerized version. They do not include the python plotting libraries.
+
 ## miniucvm
+This was the first containerized version of UCVM created by the group. It showed proof of concept and a working Dockerfile
+
+## py3ucvm
+This is the python3 version of ucvm in a docker container. No longer supported.
 
 ### Specification
 
