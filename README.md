@@ -10,6 +10,9 @@ Docker is an open-source platform to build, ship, and run applications, whether 
 ## Contents of Repo
 Each subdirectory in this UCVM repo contains a slightly different dockerized version of UCVM. As a result, the Dockerfiles used to construct the images are somewhat different. We recommend using only the most recent Docker images, created using scripts in ucvm_v21_10
 
+## Wiki-based Documentation
+[UCVM Wiki Documentation](https://github.com/sceccode/ucvm_docker/wiki) The UCVM documentation is kept together with the source code in the git repo.
+
 ## ucvm_v21_10
 This is the most recent version of ucvm. It includes the base ucvm, plus one model per image. These images have been pushed to dockerhub and they are the preferred dockerized version. They do not include the python plotting libraries.
 
