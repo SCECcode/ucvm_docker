@@ -77,6 +77,7 @@ As the docker build concludes, the Dockerfile commands removed the source files,
 <pre>
 (base) maechlin@Philip-James-MacBook mydocker % docker images
 REPOSITORY      TAG        IMAGE ID       CREATED       SIZE
+ucvm_1210_cca        09121132   f22b8f61046a   17 minutes ago      19.6GB
 ucvm_1210_wfcvm   09121132  bf21eeb74cee  15 minutes ago   6.4GB
 ucvm_1210_albacore  09121132  0c4e34277f09  23 minutes ago   6.23GB
 ucvm_1210_cvlsu   09121132  fbb5210b2def  36 minutes ago   6.23GB
