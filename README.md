@@ -32,30 +32,30 @@ Fourteen models are avialable through UCVM for various regions, most in southern
 
 ## UCVM Docker Image Usage Model
 The UCVM Docker image gives usages a command line access to the program: ucvm_query
-* Inputs:
-** List of lat/lon/depth values
-** Path to configuration file
-** Model abbreviation
-* Outputs:
-** List of lat/lon/depth values with vp, vs, density from model added for each point
+- Inputs:
+-- List of lat/lon/depth values
+-- Path to configuration file
+-- Model abbreviation
+- Outputs:
+-- List of lat/lon/depth values with vp, vs, density from model added for each point
 
 ## Running UCVM using Docker on Mac/PC/Linux
-* User starts docker on their computer
-* User start ucvm_xxxx container on their computer
-* In the directory where they started the container, they will use a subdirectory call /target.
-* The container will read input files, and write results to this directory
-* $cd /app/target
-* $ucvm_query -f /app/ucvm/conf/ucvm.conf -m cvmh < /app/test_latlons.txt
+1. User starts docker on their computer
+2. User start ucvm_xxxx container on their computer
+3. In the directory where they started the container, they will use a subdirectory call /target.
+4. The container will read input files, and write results to this directory
+5. $cd /app/target
+6. $ucvm_query -f /app/ucvm/conf/ucvm.conf -m cvmh < /app/test_latlons.txt
 
 ## Potential Benefits to Research using UCVM Docker Images
-* Full UCVM software installation is not needed. Downloading UCVM Docker images is simple.
-* UCVM software is now portable to previously unsupported operating systems including Mac and Windows.
-* Docker images with individual models require less disk space on users computers. Users can retreieve, usem remove images easily.
+- Full UCVM software installation is not needed. Downloading UCVM Docker images is simple.
+- UCVM software is now portable to previously unsupported operating systems including Mac and Windows.
+- Docker images with individual models require less disk space on users computers. Users can retreieve, usem remove images easily.
 
 ## Potential Limitations
-* Users must be comfortable running ucvm from a command line interface. This over means they are creating output files, and extracting selected information for plotting.
-* Users must work within limits of images and local computers. There are some ucvm problems, such as creating simulation meshes, that won't run on laptops. So users need to understand large-scale usage will probably require installation of UCVM on Linux systems with MPI.
-* UCVM is used on supercomputers, for example, to build simulation meshes. The docker version of UCVM may not work for this purpose. There may be a query limit on number of inputs points that an image can query.
+- Users must be comfortable running ucvm from a command line interface. This over means they are creating output files, and extracting selected information for plotting.
+- Users must work within limits of images and local computers. There are some ucvm problems, such as creating simulation meshes, that won't run on laptops. So users need to understand large-scale usage will probably require installation of UCVM on Linux systems with MPI.
+- UCVM is used on supercomputers, for example, to build simulation meshes. The docker version of UCVM may not work for this purpose. There may be a query limit on number of inputs points that an image can query.
 
 ## Run Cmd:
 docker run --rm -it --mount type=bind,source="$(pwd)"/target,destination=/app/target  sceccode/ucvm_<modelname>:MMDDHHMM
