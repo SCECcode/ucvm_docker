@@ -77,13 +77,12 @@ As the docker build concludes, the Dockerfile commands removed the source files,
 <pre>
 (base) maechlin@Philip-James-MacBook mydocker % docker images
 REPOSITORY      TAG        IMAGE ID       CREATED       SIZE
-ucvm_wfcvm      07021555   bc26446c9684   4 hours ago   4.59GB
-ucvm_albacore   07021555   9a23c0a2253c   5 hours ago   4.42GB
-ucvm_cca        07021555   49ef146b410b   5 hours ago   17.8GB
-ucvm_cvlsu      07021555   c2e258787455   5 hours ago   4.42GB
-ucvm_ivlsu      07021555   b87f75d2a284   5 hours ago   4.42GB
-ucvm_cvms       07021555   82014646db4d   5 hours ago   6.29GB
-ucvm_cvmh       07021555   23a7acc5c02f   5 hours ago   8.09GB
-ucvm_cvmsi      07021555   13b617bc0030   5 hours ago   8.72GB
-ucvm_cvms5      07021555   c512877403ed   5 hours ago   7.78GB
+ucvm_1210_wfcvm   09121132  bf21eeb74cee  15 minutes ago   6.4GB
+ucvm_1210_albacore  09121132  0c4e34277f09  23 minutes ago   6.23GB
+ucvm_1210_cvlsu   09121132  fbb5210b2def  36 minutes ago   6.23GB
+ucvm_1210_ivlsu   09121132  2b9891a1447a  43 minutes ago   6.23GB
+ucvm_1210_cvms    09121132  78353f82a98b  51 minutes ago   6.23GB
+ucvm_1210_cvmh    09121132  140744cc4327  58 minutes ago   9.9GB
+ucvm_1210_cvmsi   09121132  420e3f1e7acf  About an hour ago  7.28GB
+ucvm_1210_cvms5   09121132  8b4fa0f04e6b  About an hour ago  9.59GB
 </pre>
