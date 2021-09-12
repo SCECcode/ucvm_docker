@@ -4,16 +4,14 @@
 
 Docker is an open-source platform to build, ship, and run applications, whether on laptops, data center virtual machines, or the cloud with OS-level virtualization. 
 
-Please read the official <a href="http://docs.docker.com">Docker documentation</a> 
-and specifically the <a href="https://docs.docker.com/engine/reference/commandline/images/">Docker images</a> to setup your docker installation and step through the quickstart guide.
+* The official <a href="http://docs.docker.com">Docker documentation</a> 
+* The <a href="https://docs.docker.com/engine/reference/commandline/images/">Docker images</a> to setup your docker installation and step through the quickstart guide.
 
 ## Contents of Repo
-Each subdirectory here contains a slightly different dockerized version of UCVM. As a result, the Dockerfiles used to construct the images are somewhat different. 
+Each subdirectory in this UCVM repo contains a slightly different dockerized version of UCVM. As a result, the Dockerfiles used to construct the images are somewhat different. We recommend using only the most recent Docker images, created using scripts in ucvm_v21_10
 
-## ucvm_docker
+## ucvm_v21_10
 This is the most recent version of ucvm. It includes the base ucvm, plus one model per image. These images have been pushed to dockerhub and they are the preferred dockerized version. They do not include the python plotting libraries.
-
-There is an associated collection of files in ucvm_docker_files. This contains subdirectories that include model files as tgz files, and other large files. These other files, can be retrieved from hypocenter, but they are staged locally during the docker build to make the build process go faster
 
 ## miniucvm
 This was the first containerized version of UCVM created by the group. It showed proof of concept and a working Dockerfile
@@ -21,76 +19,40 @@ This was the first containerized version of UCVM created by the group. It showed
 ## py3ucvm
 This is the python3 version of ucvm in a docker container.
 
-### Specification
-
-*  UCVMC v19.4  https://github.com/SCECcode/UCVMC
-*  Anaconda2 (conda 4.8.2, python 2.7.16)
-*  Included CVMs: CVM-S4, CVM-S4.26, CVM-H v15.1
-
-
-### Start a miniucvm bash session
-
-    mkdir target
-    docker run --rm -it --mount type=bind,source="$(pwd)"/target,destination=/app/target  sceccode/miniucvm:1.0
-
-### Test miniucvm
-
-    cp ../examples/*.sh .
-    chmod og+x *.sh
-    ./run-ucvm-plot.sh
-    ./run-ucvm-query.sh
-    
-### End a miniucvm bash session
-
-    exit
-   
-
-##### Docker for Mac
-
-    Resource limit is set to 2GB by default. This can be changed in 
-    Docker->preference->advanced
-
-## UCVM Docker Installations
+## Motivation for Creating UCVM Docker Installations
 SCEC's UCVM velocity model software is designed to run on Linux computers, and the software must be installed, compiled, and tested on the users system before routine use.
 
 We believe we can leverage computer virtualization to help users avoid the difficult UCVM installation process. This github repo contains codes and documents for a prototype version of UCVM distributed as docker images. 
 
+## Seismic Velocity Models Available
+Fourteen models are avialable through UCVM for various regions, most in southern California, some regions quite small, one offshore, one in Utah. We have package the 3D models individually. In each Docker image, the primary CVM is provided, as well as two 1D models. The UCVM software can tile 3D models with 1D models to increase their coverage region. Users are expected to install one Docker image for each seismic velocity model.
 
-## Models Available
-As part of the cored UCVM package, 1D, and 1dbbp are available. Then nine other models were defined for various regions, most in southern California, some regions quite small, one offshore, one in Utah. We have package the 3D models individually. In each Docker image, the primary CVM is provided, as well as two 1D models. The UCVM software can tile 3D models with 1D models to increase their coverage region. Users are expected to install one Docker image for each seismic velocity model.
+## UCVM Docker Image Usage Model
+The UCVM Docker image gives usages a command line access to the program: ucvm_query
+* Inputs:
+** List of lat/lon/depth values
+** Path to configuration file
+** Model abbreviation
+* Outputs:
+** List of lat/lon/depth values with vp, vs, density from model added for each point
 
-## Usage Model
-<pre>
-This Docker image gives usages a command line access to the program: ucvm_query
-Inputs:
-List of lat/lon/depth values
-Path to configuration file
-Model abbreviation
-Outputs:
-List of lat/lon/depth values with vp, vs, density from model added for each point
-</pre>
+## Running UCVM using Docker on Mac/PC/Linux
+* User starts docker on their computer
+* User start ucvm_xxxx container on their computer
+* In the directory where they started the container, they will use a subdirectory call /target.
+* The container will read input files, and write results to this directory
+* $cd /app/target
+* $ucvm_query -f /app/ucvm/conf/ucvm.conf -m cvmh < /app/test_latlons.txt
 
-## Usage Model
-<pre>
-User starts docker on their computer
-User start ucvm_xxxx container on their computer
-In the directory where they started the container, they will use a subdirectory call /target.
-The container will read input files, and write results to this directory
-$cd /app/target
-$ucvm_query -f /app/ucvm/conf/ucvm.conf -m cvmh < /app/test_latlons.txt
-</pre>
-
-## Potential Benefits
-No installation needed
-Portable to other computers
-Progrm requires less space
-Users could retreieve use remove programs
+## Potential Benefits to Research using UCVM Docker Images
+* Full UCVM software installation is not needed. Downloading UCVM Docker images is simple.
+* UCVM software is now portable to previously unsupported operating systems including Mac and Windows.
+* Docker images with individual models require less disk space on users computers. Users can retreieve, usem remove images easily.
 
 ## Potential Limitations
-<pre>
-Users must be comfortable running ucvm from a command line interface. This over means they are creating output files, and extracting selected information for plotting.
-Users must work within limits of images and local computers. There are some size ucvm problems that won't run on their laptops, so we need to warn people what the limits are.
-UCVM is used on supercomputers, for example, to build simulation meshes. The docker version of UCVM may not work for this purpose. There may be a query limit on number of inputs points that an image can query.
+* Users must be comfortable running ucvm from a command line interface. This over means they are creating output files, and extracting selected information for plotting.
+* Users must work within limits of images and local computers. There are some ucvm problems, such as creating simulation meshes, that won't run on laptops. So users need to understand large-scale usage will probably require installation of UCVM on Linux systems with MPI.
+* UCVM is used on supercomputers, for example, to build simulation meshes. The docker version of UCVM may not work for this purpose. There may be a query limit on number of inputs points that an image can query.
 
 ## Run Cmd:
 docker run --rm -it --mount type=bind,source="$(pwd)"/target,destination=/app/target  sceccode/ucvm_<modelname>:MMDDHHMM
