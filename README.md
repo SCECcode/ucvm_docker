@@ -65,7 +65,7 @@ This is a coding and configuration test for creating a UCVM docker image that ca
 ## .dockerignore file
 There is a .dockerignore file that defines which files not to include in the image. The Dockerfile and this README.md are excluded.
 
-## Build Docker images for Nine SCEC CVMs
+## Build Docker images for CVMs registered into UCVM
 The top level script is: build_all.sh which invokes docker build 9 times, one for each model that we distribution in a docker image.
 This script moves the model .gz file into the largefiles directory, then runs the build.
 
@@ -81,13 +81,13 @@ As the docker build concludes, the Dockerfile commands removed the source files,
 (base) maechlin@Philip-James-MacBook mydocker % docker images
 REPOSITORY      TAG        IMAGE ID       CREATED       SIZE
 </pre>
-1. ucvm_1210_cencal     09121132   4f0b1fe4d4df   6 minutes ago   9.04GB
-2. ucvm_1210_cca        09121132   f22b8f61046a   17 minutes ago      19.6GB
-3. ucvm_1210_wfcvm   09121132  bf21eeb74cee  15 minutes ago   6.4GB
-4. ucvm_1210_albacore  09121132  0c4e34277f09  23 minutes ago   6.23GB
-5. ucvm_1210_cvlsu   09121132  fbb5210b2def  36 minutes ago   6.23GB
-6. ucvm_1210_ivlsu   09121132  2b9891a1447a  43 minutes ago   6.23GB
-7. ucvm_1210_cvms    09121132  78353f82a98b  51 minutes ago   6.23GB
-8. ucvm_1210_cvmh    09121132  140744cc4327  58 minutes ago   9.9GB
-9. ucvm_1210_cvmsi   09121132  420e3f1e7acf  About an hour ago  7.28GB
-10. ucvm_1210_cvms5   09121132  8b4fa0f04e6b  About an hour ago  9.59GB
+1. ucvm_1210_cencal     09131139    9.04GB
+2. ucvm_1210_cca        09131139   19.6GB
+3. ucvm_1210_wfcvm    09131139  6.4GB
+4. ucvm_1210_albacore  09131139   6.23GB
+5. ucvm_1210_cvlsu   09131139  6.23GB
+6. ucvm_1210_ivlsu   09131139  6.23GB
+7. ucvm_1210_cvms    09131139  6.23GB
+8. ucvm_1210_cvmh    09131139  9.9GB
+9. ucvm_1210_cvmsi   09131139   7.28GB
+10. ucvm_1210_cvms5   09131139  9.59GB
