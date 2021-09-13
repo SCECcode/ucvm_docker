@@ -1,1 +1,1 @@
-docker run --rm -it --mount type=bind,source="$(pwd)"/target,destination=/app/target  ucvm_v1210:09121248
+docker run --rm -it --mount type=bind,source="$(pwd)"/target,destination=/app/target  ucvm_1210_cvms5:09122303

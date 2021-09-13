@@ -17,8 +17,10 @@ ENV PATH="/app/ucvm/bin:/usr/bin/python3:${PATH}"
 RUN yum clean all
 RUN yum -y update
 RUN yum -y groupinstall "Development Tools"
-RUN yum -y install yum-utils gcc-gfortran gcc-c++ fftw-devel which python3
+RUN yum -y install yum-utils gcc-gfortran gcc-c++ fftw-devel which python3 python2
 #
+# Link python3
+# RUN ln -s /usr/bin/python3 /usr/bin/python
 # Setup Owners
 # Documents say this groupadd is needed when you build on linux, but not on Mac
 RUN groupadd --gid $GROUP_ID scec
