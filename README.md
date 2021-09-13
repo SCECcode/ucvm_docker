@@ -1,31 +1,21 @@
 # ucvm_docker
 
-## Docker
+## Motivation for Creating UCVM Docker Installations
+SCEC's UCVM velocity model software is designed to run on Linux computers, and the software must be installed, compiled, and tested on the users system before routine use. We believe we can leverage computer virtualization to help users avoid the difficult UCVM installation process. This github repo contains codes and documents for a prototype version of UCVM distributed as docker images. 
 
-Docker is an open-source platform to build, ship, and run applications, whether on laptops, data center virtual machines, or the cloud with OS-level virtualization. 
-
-* The official <a href="http://docs.docker.com">Docker documentation</a> 
-* The <a href="https://docs.docker.com/engine/reference/commandline/images/">Docker images</a> to setup your docker installation and step through the quickstart guide.
-
-## Contents of Repo
-Each subdirectory in this UCVM repo contains a slightly different dockerized version of UCVM. As a result, the Dockerfiles used to construct the images are somewhat different. We recommend using only the most recent Docker images, created using scripts in ucvm_v21_10
-
-## Wiki-based Documentation
+## UCVM Docker Wiki-based Documentation
 [UCVM Wiki Documentation](https://github.com/sceccode/ucvm_docker/wiki) The UCVM documentation is kept together with the source code in the git repo.
 
+## Contents of Repo - UCVM Docker Versions
+Each subdirectory in this UCVM repo contains a slightly different dockerized version of UCVM. As a result, the Dockerfiles used to construct the images are somewhat different. We recommend using only the most recent Docker images, created using scripts in ucvm_v21_10
 ## ucvm_v21_10
 This is the most recent version of ucvm. It includes the base ucvm, plus one model per image. These images have been pushed to dockerhub and they are the preferred dockerized version. They do not include the python plotting libraries.
-
 ## miniucvm
 This was the first containerized version of UCVM created by the group. It showed proof of concept and a working Dockerfile
-
 ## py3ucvm
 This is the python3 version of ucvm in a docker container.
 
-## Motivation for Creating UCVM Docker Installations
-SCEC's UCVM velocity model software is designed to run on Linux computers, and the software must be installed, compiled, and tested on the users system before routine use.
 
-We believe we can leverage computer virtualization to help users avoid the difficult UCVM installation process. This github repo contains codes and documents for a prototype version of UCVM distributed as docker images. 
 
 ## Seismic Velocity Models Available
 Fourteen models are avialable through UCVM for various regions, most in southern California, some regions quite small, one offshore, one in Utah. We have package the 3D models individually. In each Docker image, the primary CVM is provided, as well as two 1D models. The UCVM software can tile 3D models with 1D models to increase their coverage region. Users are expected to install one Docker image for each seismic velocity model.
@@ -91,3 +81,9 @@ REPOSITORY      TAG        IMAGE ID       CREATED       SIZE
 8. ucvm_1210_cvmh    09131139  9.9GB
 9. ucvm_1210_cvmsi   09131139   7.28GB
 10. ucvm_1210_cvms5   09131139  9.59GB
+
+## Docker Software
+Docker is an open-source platform to build, ship, and run applications, whether on laptops, data center virtual machines, or the cloud with OS-level virtualization. 
+
+* The official <a href="http://docs.docker.com">Docker documentation</a> 
+* The <a href="https://docs.docker.com/engine/reference/commandline/images/">Docker images</a> to setup your docker installation and step through the quickstart guide.
