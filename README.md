@@ -32,30 +32,30 @@ Fourteen models are avialable through UCVM for various regions, most in southern
 
 ## UCVM Docker Image Usage Model
 The UCVM Docker image gives usages a command line access to the program: ucvm_query
-* Inputs:
-** List of lat/lon/depth values
-** Path to configuration file
-** Model abbreviation
-* Outputs:
-** List of lat/lon/depth values with vp, vs, density from model added for each point
+- Inputs:
+-- List of lat/lon/depth values
+-- Path to configuration file
+-- Model abbreviation
+- Outputs:
+-- List of lat/lon/depth values with vp, vs, density from model added for each point
 
 ## Running UCVM using Docker on Mac/PC/Linux
-* User starts docker on their computer
-* User start ucvm_xxxx container on their computer
-* In the directory where they started the container, they will use a subdirectory call /target.
-* The container will read input files, and write results to this directory
-* $cd /app/target
-* $ucvm_query -f /app/ucvm/conf/ucvm.conf -m cvmh < /app/test_latlons.txt
+1. User starts docker on their computer
+2. User start ucvm_xxxx container on their computer
+3. In the directory where they started the container, they will use a subdirectory call /target.
+4. The container will read input files, and write results to this directory
+5. $cd /app/target
+6. $ucvm_query -f /app/ucvm/conf/ucvm.conf -m cvmh < /app/test_latlons.txt
 
 ## Potential Benefits to Research using UCVM Docker Images
-* Full UCVM software installation is not needed. Downloading UCVM Docker images is simple.
-* UCVM software is now portable to previously unsupported operating systems including Mac and Windows.
-* Docker images with individual models require less disk space on users computers. Users can retreieve, usem remove images easily.
+- Full UCVM software installation is not needed. Downloading UCVM Docker images is simple.
+- UCVM software is now portable to previously unsupported operating systems including Mac and Windows.
+- Docker images with individual models require less disk space on users computers. Users can retreieve, usem remove images easily.
 
 ## Potential Limitations
-* Users must be comfortable running ucvm from a command line interface. This over means they are creating output files, and extracting selected information for plotting.
-* Users must work within limits of images and local computers. There are some ucvm problems, such as creating simulation meshes, that won't run on laptops. So users need to understand large-scale usage will probably require installation of UCVM on Linux systems with MPI.
-* UCVM is used on supercomputers, for example, to build simulation meshes. The docker version of UCVM may not work for this purpose. There may be a query limit on number of inputs points that an image can query.
+- Users must be comfortable running ucvm from a command line interface. This over means they are creating output files, and extracting selected information for plotting.
+- Users must work within limits of images and local computers. There are some ucvm problems, such as creating simulation meshes, that won't run on laptops. So users need to understand large-scale usage will probably require installation of UCVM on Linux systems with MPI.
+- UCVM is used on supercomputers, for example, to build simulation meshes. The docker version of UCVM may not work for this purpose. There may be a query limit on number of inputs points that an image can query.
 
 ## Run Cmd:
 docker run --rm -it --mount type=bind,source="$(pwd)"/target,destination=/app/target  sceccode/ucvm_<modelname>:MMDDHHMM
@@ -80,13 +80,14 @@ As the docker build concludes, the Dockerfile commands removed the source files,
 <pre>
 (base) maechlin@Philip-James-MacBook mydocker % docker images
 REPOSITORY      TAG        IMAGE ID       CREATED       SIZE
-ucvm_1210_cca        09121132   f22b8f61046a   17 minutes ago      19.6GB
-ucvm_1210_wfcvm   09121132  bf21eeb74cee  15 minutes ago   6.4GB
-ucvm_1210_albacore  09121132  0c4e34277f09  23 minutes ago   6.23GB
-ucvm_1210_cvlsu   09121132  fbb5210b2def  36 minutes ago   6.23GB
-ucvm_1210_ivlsu   09121132  2b9891a1447a  43 minutes ago   6.23GB
-ucvm_1210_cvms    09121132  78353f82a98b  51 minutes ago   6.23GB
-ucvm_1210_cvmh    09121132  140744cc4327  58 minutes ago   9.9GB
-ucvm_1210_cvmsi   09121132  420e3f1e7acf  About an hour ago  7.28GB
-ucvm_1210_cvms5   09121132  8b4fa0f04e6b  About an hour ago  9.59GB
 </pre>
+1. ucvm_1210_cencal     09121132   4f0b1fe4d4df   6 minutes ago   9.04GB
+2. ucvm_1210_cca        09121132   f22b8f61046a   17 minutes ago      19.6GB
+3. ucvm_1210_wfcvm   09121132  bf21eeb74cee  15 minutes ago   6.4GB
+4. ucvm_1210_albacore  09121132  0c4e34277f09  23 minutes ago   6.23GB
+5. ucvm_1210_cvlsu   09121132  fbb5210b2def  36 minutes ago   6.23GB
+6. ucvm_1210_ivlsu   09121132  2b9891a1447a  43 minutes ago   6.23GB
+7. ucvm_1210_cvms    09121132  78353f82a98b  51 minutes ago   6.23GB
+8. ucvm_1210_cvmh    09121132  140744cc4327  58 minutes ago   9.9GB
+9. ucvm_1210_cvmsi   09121132  420e3f1e7acf  About an hour ago  7.28GB
+10. ucvm_1210_cvms5   09121132  8b4fa0f04e6b  About an hour ago  9.59GB
