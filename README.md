@@ -1,4 +1,30 @@
 # ucvm_docker
+## Current UCVM Docker Images on [Dockerhub](https://hub.docker.com)
+1. ucvm_1210_cencal           09131731   9.04GB
+2. ucvm_1210_wfcvm            09131731   6.44GB
+3. ucvm_1210_albacore         09131731   6.27GB
+4. sceccode/ucvm_1210_cca:09131731   19.7GB
+5. sceccode/ucvm_1210_cvlsu:09131731   6.27GB
+6. sceccode/ucvm_1210_ivlsu:09131731   6.27GB
+7. sceccode/ucvm_1210_cvms:09131731   6.27GB
+8. sceccode/ucvm_1210_cvmh:09131731   9.94GB
+9. sceccode/ucvm_1210_cvmsi:09131731   7.32GB
+10. sceccode/ucvm_1210_cvms5:09131731   9.63G
+
+## Quickstart
+On users computer, install Docker client, and start Docker on your local computer. 
+
+Open a terminal window on your local computer, and create a directory where you will run UCVM.
+*mkdir /Users/maechlin/ucvm_docker
+*cd /Users/maechlin/ucvm_docker
+
+Create a "target"directory where UCVM files are input/output
+*cd /Users/maechlin/ucvm_docker
+* mkdir target
+* ls /Users/maechlin/ucvm_docker/target
+
+Start UCVM Docker image. It will be downloaded from Dockerhub
+* docker run --rm -it --mount type=bind,source="$(pwd)"/target,destination=/app/target  ucvm_1210_cvms5:09131731
 
 ## Motivation for Creating UCVM Docker Installations
 SCEC's UCVM velocity model software is designed to run on Linux computers, and the software must be installed, compiled, and tested on the users system before routine use. We believe we can leverage computer virtualization to help users avoid the difficult UCVM installation process. This github repo contains codes and documents for a prototype version of UCVM distributed as docker images. 
@@ -14,8 +40,6 @@ This is the most recent version of ucvm. It includes the base ucvm, plus one mod
 This was the first containerized version of UCVM created by the group. It showed proof of concept and a working Dockerfile
 ## py3ucvm
 This is the python3 version of ucvm in a docker container.
-
-
 
 ## Seismic Velocity Models Available
 Fourteen models are avialable through UCVM for various regions, most in southern California, some regions quite small, one offshore, one in Utah. We have package the 3D models individually. In each Docker image, the primary CVM is provided, as well as two 1D models. The UCVM software can tile 3D models with 1D models to increase their coverage region. Users are expected to install one Docker image for each seismic velocity model.
