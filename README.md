@@ -12,7 +12,7 @@
 10. sceccode/ucvm_1210_cvms5:09131731   9.63G
 
 ## Quickstart
-UCVM Docker images contains UCVM software and that can be run on users own computer without requiring a significant installation process. Users can install the free Docker client on their Laptops, and then use the Docker client software to run UCVM Docker images. Docker client software is available as a free software download for several operating systems including MacOS, Windows, and Linux.
+UCVM Docker images contains UCVM software which can be run without a significant installation process. Users install the Docker client on their Laptops, and then use the Docker client software to run UCVM Docker images. Docker client software is available as a free software download for several operating systems including MacOS, Windows, and Linux.
 
 1. Install Docker Client on User Computer and Start Docker Client
 - Docker Client download from [Dockerhub](https://hub.docker.com)
