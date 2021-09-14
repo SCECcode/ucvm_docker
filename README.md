@@ -1,8 +1,8 @@
 # ucvm_docker
-## Current UCVM Docker Images on [Dockerhub](https://hub.docker.com)
-1. ucvm_1210_cencal           09131731   9.04GB
-2. ucvm_1210_wfcvm            09131731   6.44GB
-3. ucvm_1210_albacore         09131731   6.27GB
+## Current UCVM Docker Images on 
+1. ucvm_1210_cencal:09131731   9.04GB
+2. ucvm_1210_wfcvm:09131731   6.44GB
+3. ucvm_1210_albacore:09131731   6.27GB
 4. sceccode/ucvm_1210_cca:09131731   19.7GB
 5. sceccode/ucvm_1210_cvlsu:09131731   6.27GB
 6. sceccode/ucvm_1210_ivlsu:09131731   6.27GB
@@ -12,19 +12,23 @@
 10. sceccode/ucvm_1210_cvms5:09131731   9.63G
 
 ## Quickstart
-On users computer, install Docker client, and start Docker on your local computer. 
+UCVM Docker images contains UCVM software and that can be run on users own computer without requiring a significant installation process. Users can install the free Docker client on their Laptops, and then use the Docker client software to run UCVM Docker images. Docker client software is available as a free software download for several operating systems including MacOS, Windows, and Linux.
 
-Open a terminal window on your local computer, and create a directory where you will run UCVM.
-*mkdir /Users/maechlin/ucvm_docker
-*cd /Users/maechlin/ucvm_docker
+1. Install Docker Client on User Computer and Start Docker Client
+- Docker Client download from [Dockerhub](https://hub.docker.com)
+- Increase Docker configuration to 2 CPUs and 50GB memory
 
-Create a "target"directory where UCVM files are input/output
-*cd /Users/maechlin/ucvm_docker
-* mkdir target
-* ls /Users/maechlin/ucvm_docker/target
+2. Open a terminal window on your local computer, and create a directory where you will run UCVM.
+- mkdir /Users/maechlin/ucvm_docker
+- cd /Users/maechlin/ucvm_docker
 
-Start UCVM Docker image. It will be downloaded from Dockerhub
-* docker run --rm -it --mount type=bind,source="$(pwd)"/target,destination=/app/target  ucvm_1210_cvms5:09131731
+3. Create a "target" directory where UCVM files are input/output
+- cd /Users/maechlin/ucvm_docker
+- mkdir target
+- ls /Users/maechlin/ucvm_docker/target
+
+4. Start UCVM Docker image. The UCVM image will be downloaded from Dockerhub. The image is about 6GB so download time may be minutes or longer.
+- docker run --rm -it --mount type=bind,source="$(pwd)"/target,destination=/app/target  ucvm_1210_cvms5:09131731
 
 ## Motivation for Creating UCVM Docker Installations
 SCEC's UCVM velocity model software is designed to run on Linux computers, and the software must be installed, compiled, and tested on the users system before routine use. We believe we can leverage computer virtualization to help users avoid the difficult UCVM installation process. This github repo contains codes and documents for a prototype version of UCVM distributed as docker images. 
@@ -89,22 +93,6 @@ This lists the steps needed to build the container. It starts with a amazonlinux
 It copies the ucvm git repo from the build computer into the image, and then invokes the build process. The build process runs, installs results in a directory: /app/ucvm
 
 As the docker build concludes, the Dockerfile commands removed the source files, leaving only the binary files and the model files for the selected model.
-
-## Current list of supported CVM models include:
-<pre>
-(base) maechlin@Philip-James-MacBook mydocker % docker images
-REPOSITORY      TAG        IMAGE ID       CREATED       SIZE
-</pre>
-1. ucvm_1210_cencal     09131139    9.04GB
-2. ucvm_1210_cca        09131139   19.6GB
-3. ucvm_1210_wfcvm    09131139  6.4GB
-4. ucvm_1210_albacore  09131139   6.23GB
-5. ucvm_1210_cvlsu   09131139  6.23GB
-6. ucvm_1210_ivlsu   09131139  6.23GB
-7. ucvm_1210_cvms    09131139  6.23GB
-8. ucvm_1210_cvmh    09131139  9.9GB
-9. ucvm_1210_cvmsi   09131139   7.28GB
-10. ucvm_1210_cvms5   09131139  9.59GB
 
 ## Docker Software
 Docker is an open-source platform to build, ship, and run applications, whether on laptops, data center virtual machines, or the cloud with OS-level virtualization. 
