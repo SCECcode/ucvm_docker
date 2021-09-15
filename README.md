@@ -1,7 +1,7 @@
 ## ucvm_docker
 This ucvm_docker repo contains scripts for running UCVM Docker Images and scripts for creating (building) UCVM Docker Images. The information about building UCVM docker images is not needed by most users.
 
-## How to Run UCVM Docker Image - Quickstart
+## How to Run a UCVM Docker Image - Quickstart
 UCVM Docker images contains UCVM software which can be run without a significant installation process. Users install the Docker client on their Laptops, and then use the Docker client software to run UCVM Docker images. Docker client software is available as a free software download for several operating systems including MacOS, Windows, and Linux.
 
 1. Install Docker Client on User Computer and Start Docker Client
