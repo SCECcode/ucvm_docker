@@ -50,13 +50,13 @@ Docker is an open-source platform to build, ship, and run applications, whether 
 - The <a href="https://docs.docker.com/engine/reference/commandline/images/">Docker images</a> to setup your docker installation and step through the quickstart guide.
   
 ## Current UCVM Docker Images on Dockerhub
-1. sceccode/ucvm_1210_cencal:09131731   9.04GB
-2. sceccode/ucvm_1210_wfcvm:09131731   6.44GB
-3. sceccode/ucvm_1210_albacore:09131731   6.27GB
-4. sceccode/ucvm_1210_cca:09131731   19.7GB
-5. sceccode/ucvm_1210_cvlsu:09131731   6.27GB
-6. sceccode/ucvm_1210_ivlsu:09131731   6.27GB
-7. sceccode/ucvm_1210_cvms:09131731   6.27GB
-8. sceccode/ucvm_1210_cvmh:09131731   9.94GB
-9. sceccode/ucvm_1210_cvmsi:09131731   7.32GB
-10. sceccode/ucvm_1210_cvms5:09131731   9.63G
+1. sceccode/ucvm_1210_cencal:09131731   (9.04GB)
+2. sceccode/ucvm_1210_wfcvm:09131731   (6.44GB)
+3. sceccode/ucvm_1210_albacore:09131731   (6.27GB)
+4. sceccode/ucvm_1210_cca:09131731   (19.7GB)
+5. sceccode/ucvm_1210_cvlsu:09131731   (6.27GB)
+6. sceccode/ucvm_1210_ivlsu:09131731   (6.27GB)
+7. sceccode/ucvm_1210_cvms:09131731   (6.27GB)
+8. sceccode/ucvm_1210_cvmh:09131731   (9.94GB)
+9. sceccode/ucvm_1210_cvmsi:09131731   (7.32GB)
+10. sceccode/ucvm_1210_cvms5:09131731   (9.63G)
