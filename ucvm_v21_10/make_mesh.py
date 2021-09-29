@@ -9,7 +9,7 @@ import time
 #
 if not os.path.exists("out.grd"):
   print "Creating grd.out file."
-  cmd="/app/ucvm/utilities/makegrid"
+  cmd="/app/ucvm/utilities/makegrid.sh"
   print cmd
   os.system(cmd)
 #
