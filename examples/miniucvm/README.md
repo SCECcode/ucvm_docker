@@ -22,7 +22,7 @@
     cp ../examples/*.sh .
     chmod og+x *.sh
 
-    ./run_ucvm_plot.sh
+##    ./run_ucvm_plot.sh
     ./run_ucvm_query.sh
 
 ## manipulate the container
