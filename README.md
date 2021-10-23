@@ -11,7 +11,7 @@ UCVM was developed as an interdisciplinary research collaboration involving geos
 UCVM is open-source scientific software designed to support earth scientists, civil engineers, and other groups interested in detailed information about earth properties. UCVM is primarily used by scientists to work with earth material properties on regional scales. One important use of UCVM is to create simulation meshes used in high resolution 3D wave propagation simulations.
 
 # Table of Contents:
-1. [Software Documentation](https://github.com/SCECcode/ucvm/wiki)
+1. [Software Documentation](https://github.com/SCECcode/ucvm_docker/wiki)
 2. [Installation](#installation)
 3. [Usage](#usage)
 4. [Contributing](#contributing)
