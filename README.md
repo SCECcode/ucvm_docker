@@ -1,62 +1,129 @@
-## ucvm_docker
-This ucvm_docker repo contains scripts for running UCVM Docker Images and scripts for creating (building) UCVM Docker Images. The information about building UCVM docker images is not needed by most users.
+[![ucvm-ci Actions Status](https://github.com/SCECcode/ucvm_docker/workflows/ucvm-ci/badge.svg)](https://github.com/SCECcode/ucvm_docker/actions)
 
-## How to Run a UCVM Docker Image - Quickstart
-UCVM Docker images contains UCVM software which can be run without a significant installation process. Users install the Docker client on their Laptops, and then use the Docker client software to run UCVM Docker images. Docker client software is available as a free software download for several operating systems including MacOS, Windows, and Linux.
+# Project name:
+The Unified Community Velocity Model (UCVM) Software Docker Implementation
 
-1. Install Docker Client on User Computer and Start Docker Client
-- Docker Client download from [Dockerhub](https://hub.docker.com)
-- Increase Docker configuration to 2 CPUs and 50GB memory
+# Description: 
+The SCEC Unified Community Velocity Model (UCVM) software framework is a collection of software tools that provide a standard query interface to seismic velocity models. Once a seismic velocity model is registered into UCVM, it can be queried and combined with other velocity models through the UCVM software interface.
 
-2. Open a terminal window on your local computer, and create a directory where you will run UCVM.
-- mkdir /Users/maechlin/ucvm_docker
-- cd /Users/maechlin/ucvm_docker
+UCVM was developed as an interdisciplinary research collaboration involving geoscientists and computer scientists. UCVM geoscience research includes identification and assembly of existing California velocity models into a state-wide model and improvements to existing velocity models. UCVM computer science research includes definition of a easy-to-use CVM query interface, integration of regional 3D and geotechnical models, and automated CVM evaluation processing capabilities.
 
-3. Create a "target" directory where UCVM files are input/output
-- cd /Users/maechlin/ucvm_docker
-- mkdir target
-- ls /Users/maechlin/ucvm_docker/target
+UCVM is open-source scientific software designed to support earth scientists, civil engineers, and other groups interested in detailed information about earth properties. UCVM is primarily used by scientists to work with earth material properties on regional scales. One important use of UCVM is to create simulation meshes used in high resolution 3D wave propagation simulations.
 
-4. Open a terminal window and start the UCVM Docker image using the docker run command below. The UCVM image will be downloaded from Dockerhub. The image is about 6GB so download time may be minutes or longer.
-- docker run --rm -it --mount type=bind,source="$(pwd)"/target,destination=/app/target  ucvm_1210_cvms5:09131731
+# Table of Contents:
+1. [Software Documentation](https://github.com/SCECcode/ucvm/wiki)
+2. [Installation](#installation)
+3. [Usage](#usage)
+4. [Contributing](#contributing)
+5. [Credits](#credit)
+6. [License](#license)
 
-5. The images starts and users sees a Linux bash shell command line prompt as user "ucvm" in directory: /app/target
- 
-7. Run a ucvm_query test query
-- $ucvm_query -f /app/ucvm/conf/ucvm.conf -m cvmh < /app/test_latlons.txt
+# Installation:
+UCVM was developed to support seismic simulations run on high-performance computing systems, so it is designed to compile and run on Linux-based computers. Before installing UCVM, they should be aware that there are several ways to get access to UCVM without installing the software on your own Linux computer. Below we outline several of the options:
+1. [SCEC UCVM Web viewer:](http://moho.scec.org/UCVM_web/web/viewer.php) Users can query UCVM velocity models, without installing UCVM, using the UCVM website. 
+2. [UCVM Docker Images](https://github.com/sceccode/ucvm_docker) Users can run UCVM in Docker on their local computers including laptops. Users can install free Docker software on most computers (e.g. Linux, MacOS, Windows) then run an UCVM Docker image in a terminal window on their computer. 
+3.  [Installation Instructions for Linux Systems:](https://github.com/sceccode/ucvm/wiki/installation) User can install UCVM on Linux system. Advanced users that want to install many of the UCVM models, or that want to run large parallel queries of the CVM models, should install the UCVM software on a Linux system. UCVM software is developed on USC Center for Advanced Research Computing (CARC) Linux cluster which provide MPI libraries. The UCVM software framework has several MPI-based executables. These executables are built using the automake system if the required MPI libraries are found in the installation computing environment. 
 
-8. Create your own test_latlons.txt in your "target" directory
-- Files saved to "target" will be saved after container exits. So put any input or outputs in the "target" directory. 
-- If you edit the /app/ucvm/conf/ucvm.conf file, since that file is in the container file system, file edits will be lost when the container exits.
+# Usage: 
+Once installed, UCVM provides an executable program, called ucvm_query, that implements a query interface to multiple seismic velocity models.
 
-## Motivation for Creating UCVM Docker Installations
-SCEC's UCVM velocity model software is designed to run on Linux computers, and the software must be installed, compiled, and tested on the users system before routine use. We believe we can leverage computer virtualization to help users avoid the difficult UCVM installation process. This github repo contains codes and documents for a prototype version of UCVM distributed as docker images. 
+## Determine Available Velocity Models
+During UCVM installation, the user is asked which velocity models they want installed. As a result, UCVM users need to know which velocity models are installed in their local system. The UCVM executable program, called ucvm_query, can be used to determine which velocity models are installed, as in this following example.
+<pre>
+$ ucvm_query -H
+</pre>
+returns
+<pre>
+(base) [maechlin@discovery1 ~]$ ucvm_query -H
+Usage: ucvm_query [-m models<:ifunc>] [-p user_map] [-c coordtype] [-f config] [-z zmin,zmax] [-b] < file.in
 
-## UCVM Docker Wiki-based Documentation
-[UCVM Wiki Documentation](https://github.com/sceccode/ucvm_docker/wiki) The UCVM documentation is kept together with the source code in the git repo.
+Flags:
+	-h This help message.
+	-H Detail help message.
+	-m Comma delimited list of crustal/GTL models to query in order
+	   of preference. GTL models may optionally be suffixed with ':ifunc'
+	   to specify interpolation function.
+	-c Z coordinate mode: geo-depth (gd, default), geo-elev (ge).
+	-f Configuration file. Default is ./ucvm.conf.
+	-p User-defined map to use for elevation and vs30 data.
+	-v Display model version information only.
+	-z Optional depth range for gtl/crust interpolation.
 
-## Contents of Repo - UCVM Docker Versions
-Each subdirectory in this UCVM repo contains a slightly different dockerized version of UCVM. As a result, the Dockerfiles used to construct the images are somewhat different. We recommend using only the most recent Docker images, created using scripts in ucvm_v21_10
-## ucvm_v21_10
-This is the most recent version of ucvm. It includes the base ucvm, plus one model per image. These images have been pushed to dockerhub and they are the preferred dockerized version. They do not include the python plotting libraries.
-## miniucvm
-This was the first containerized version of UCVM created by the group. It showed proof of concept and a working Dockerfile
-## py3ucvm
-This is the python3 version of ucvm in a docker container.
+	-b Optional output in json format
 
-## Docker Client Software - Download
-Docker is an open-source platform to build, ship, and run applications, whether on laptops, data center virtual machines, or the cloud with OS-level virtualization. 
-- The official <a href="http://docs.docker.com">Docker documentation</a> 
-- The <a href="https://docs.docker.com/engine/reference/commandline/images/">Docker images</a> to setup your docker installation and step through the quickstart guide.
-  
-## Current UCVM Docker Images on Dockerhub
-1. sceccode/ucvm_1210_cencal:09131731   (9.04GB)
-2. sceccode/ucvm_1210_wfcvm:09131731   (6.44GB)
-3. sceccode/ucvm_1210_albacore:09131731   (6.27GB)
-4. sceccode/ucvm_1210_cca:09131731   (19.7GB)
-5. sceccode/ucvm_1210_cvlsu:09131731   (6.27GB)
-6. sceccode/ucvm_1210_ivlsu:09131731   (6.27GB)
-7. sceccode/ucvm_1210_cvms:09131731   (6.27GB)
-8. sceccode/ucvm_1210_cvmh:09131731   (9.94GB)
-9. sceccode/ucvm_1210_cvmsi:09131731   (7.32GB)
-10. sceccode/ucvm_1210_cvms5:09131731   (9.63G)
+	-l Optional input lon,lat,Z(depth/elevation)
+
+Input format is:
+	lon lat Z
+
+Output format is:
+	lon lat Z surf vs30 crustal cr_vp cr_vs cr_rho gtl gtl_vp gtl_vs gtl_rho cmb_algo cmb_vp cmb_vs cmb_rho
+
+Notes:
+	- If running interactively, type Cntl-D to end input coord list.
+
+Version: 21.7.0
+
+Installed Resources:
+          1d : crustal model
+       bbp1d : crustal model
+    cmuetree : crustal model
+       1dgtl : gtl
+      elygtl : gtl
+       cvms5 : crustal model
+         cca : crustal model
+       cs173 : crustal model
+      cs173h : crustal model
+      linear : ifunc
+         ely : ifunc
+        ucvm : map
+        yong : map
+ model_etree : model i/f
+ model_patch : model i/f
+   map_etree : map i/f
+</pre>
+
+## ucvm_query
+'ucvm_query' is the basic UCVM interface that queries velocity model of interest.
+
+<pre>
+$ ucvm_query -f /usr/local/opt/ucvm/conf/ucvm.conf -m cvmh -l 33.84007,-117.95683,0.0
+</pre>
+returns
+<pre>
+ -117.9568    33.8401      0.000     34.438    293.500       cvmh   1238.170    120.690   1450.659       none      0.000      0.000      0.000      crust   1238.170    120.690   1450.65
+</pre>
+
+The results are in a column oriented format. Abbreviations are like this:
+<pre>
+Output format is:
+   0   1  2  3    4     5       6     7     8     9   10      11    12       13     14      15     16
+  lon lat Z surf vs30 crustal cr_vp cr_vs cr_rho gtl gtl_vp gtl_vs gtl_rho cmb_algo cmb_vp cmb_vs cmb_rho
+</pre>
+
+The first three colums are the input values of lon (decimal degrees), lat (decimal degrees), and depth (meters). The other columns that are returned are information about the velocity model used provide the material properties. Crustal models, and Geotechnical Models can be stored and used seperately in UCVM. The contributions of each model are shown in columns 5-8 and 10-12, but the combined results returned in 14-16 are typically used by modelers.
+<pre>
+ -118.0000    34.0000      0.000    280.896    390.000      cvmsi    696.491    213.000   1974.976       none      0.000      0.000      0.000      crust    696.491    213.000   1974.976
+ -118.0000    34.0000     50.000    280.896    390.000      cvmsi   1669.540    548.000   2128.620       none      0.000      0.000      0.000      crust   1669.540    548.000   2128.620
+ -118.0000    34.0000    100.000    280.896    390.000      cvmsi   1683.174    603.470   2130.773       none      0.000      0.000      0.000      crust   1683.174    603.470   2130.773
+ -118.0000    34.0000    500.000    280.896    390.000      cvmsi   2701.217   1475.609   2354.105       none      0.000      0.000      0.000      crust   2701.217   1475.609   2354.105
+ -118.0000    34.0000   1000.000    280.896    390.000      cvmsi   3330.909   1945.594   2443.042       none      0.000      0.000      0.000      crust   3330.909   1945.594   2443.042
+</pre>
+
+# Support:
+Support for UCVM is provided by that Southern California Earthquake Center (SCEC) Research Computing Group. This group supports several research software distributions including UCVM. Users can report issues and feature requests using UCVM's github-based issue tracking link below. Developers will also respond to emails sent to the SCEC software contact listed below.
+1. [UCVM Github Issue Tracker:](https://github.com/SCECcode/ucvm/issues)
+2. Email Contact: software@scec.usc.edu
+
+# Contributing:
+We welcome contributions to the UCVM software framework. Geoscientists can register their seismic velocity models into UCVM and software developers can improve and extend the UCVM software. An overview of the process for contributing seismic models or software updates to the UCVM Project is provided in the UCVM [contribution guidelines](CONTRIBUTING.md).
+
+# Credits:
+The following developers have contributed to the development of the UCVM software framework. Along with these UCVM developers, each velocity model accessible through UCVM has its own list of contributors which can be found in the git repositories for each model.
+* Mei-Hui Su, Southern California Earthquake Center
+* Philip Maechling, Southern California Earthquake Center
+* David Gill, Microsoft
+* Patrick Small, University of Southern California
+
+# License:
+The UCVM software is distributed under the BSD 3-Clause open-source license. Please see the [LICENSE.txt file](LICENSE.txt) for more information.
