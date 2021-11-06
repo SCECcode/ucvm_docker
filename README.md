@@ -56,17 +56,15 @@ UCVM Docker images contains UCVM software which can be run without a significant
 Once installed, UCVM provides an executable program, called ucvm_query, that implements a query interface to multiple seismic velocity models.
 
 ## Support:
-Support for UCVM is provided by that Southern California Earthquake Center (SCEC) Research Computing Group. This group supports several research software distributions including UCVM. Users can report issues and feature requests using UCVM's github-based issue tracking link below. Developers will also respond to emails sent to the SCEC software contact listed below.
+Support for UCVM docker images is provided by that Southern California Earthquake Center (SCEC) Research Computing Group. This group supports several research software distributions including UCVM. Users can report issues and feature requests using UCVM's github-based issue tracking link below. Developers will also respond to emails sent to the SCEC software contact listed below.
 1. [UCVM Github Issue Tracker:](https://github.com/SCECcode/ucvm_docker/issues)
 2. Email Contact: software@scec.usc.edu
 
-## Contributing:
-We welcome contributions to the UCVM software framework. Geoscientists can register their seismic velocity models into UCVM and software developers can improve and extend the UCVM software. An overview of the process for contributing seismic models or software updates to the UCVM Project is provided in the UCVM [contribution guidelines](CONTRIBUTING.md).
+## Contributing
+We welcome contributions to the UCVM software framework. An overview of the process for contributing seismic models or software updates to the UCVM Project is provided in the [UCVM contribution](CONTRIBUTING.md) guidelines. UCVM contributors agree to abide by the code of conduct found in our [Code of Conduct](CODE_OF_CONDUCT.md) guidelines.
 
-## Credits:
-The following developers have contributed to the development of the UCVM docker software framework. Along with these UCVM developers, each velocity model accessible through UCVM has its own list of contributors which can be found in the git repositories for each model.
-* Mei-Hui Su, Southern California Earthquake Center
-* Philip Maechling, Southern California Earthquake Center
+## Credits
+Development of UCVM is a group effort. Developers that have contributed to the UCVM docker software are listed in the [CREDITS.md](Credits.md) file in this repository.
 
-## License:
-The UCVM software is distributed under the BSD 3-Clause open-source license. Please see the [LICENSE.txt file](LICENSE.txt) for more information.
+## License
+The UCVM software is distributed under the BSD 3-Clause open-source license. Please see the [LICENSE.txt](LICENSE.txt) file for more information.
