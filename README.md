@@ -57,7 +57,7 @@ Once installed, UCVM provides an executable program, called ucvm_query, that imp
 
 ## Support:
 Support for UCVM docker images is provided by that Southern California Earthquake Center (SCEC) Research Computing Group. This group supports several research software distributions including UCVM. Users can report issues and feature requests using UCVM's github-based issue tracking link below. Developers will also respond to emails sent to the SCEC software contact listed below.
-1. [UCVM Github Issue Tracker:](https://github.com/SCECcode/ucvm_docker/issues)
+1. [UCVM Docker Github Issue Tracker:](https://github.com/SCECcode/ucvm_docker/issues)
 2. Email Contact: software@scec.usc.edu
 
 ## Contributing
