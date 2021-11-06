@@ -2,7 +2,9 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/sceccode/ucvm_docker)
 [![ucvm_plotting-ci Actions Status](https://github.com/SCECcode/ucvm_docker/workflows/ucvm_plotting-ci/badge.svg)](https://github.com/SCECcode/ucvm_docker/actions)
 
-## The Unified Community Velocity Model (UCVM) Software Docker Implementation
+## The Unified Community Velocity Model (UCVM) Docker Images
+
+<a href="http://www.scec.org/research"><img src="https://github.com/sceccode/ucvm_docker/wiki/images/ucvm_docker_logo.png"></a>
 
 ## Description: 
 The SCEC Unified Community Velocity Model (UCVM) software framework is a collection of software tools that provide a standard query interface to seismic velocity models. Once a seismic velocity model is registered into UCVM, it can be queried and combined with other velocity models through the UCVM software interface.
