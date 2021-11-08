@@ -12,15 +12,15 @@ LABEL "maintainer"="Philip Maechling <maechlin@usc.edu>" "appname"="ucvm"
 #
 ENV UCVM_SRC_PATH=/app/src UCVM_INSTALL_PATH=/app/ucvm LD_LIBRARY_PATH=/app/ucvm/lib/euclid3/lib:/app/ucvm/lib/proj-5/lib:/app/ucvm/model/cvms/lib:/app/ucvm/model/cvms5/lib:/app/ucvm/model/cvmh1511/lib:/app/ucvm/model/cvmsi/lib:/app/ucvm/model/wfcvm/lib
 ENV PYTHONPATH=/app/ucvm/utilities/pycvm
-ENV PATH="/app/ucvm/bin:/usr/bin/python3:${PATH}"
+ENV PATH="/app/ucvm/bin:/usr/bin/python2:/usr/bin/python3:${PATH}"
 #
 RUN yum clean all
 RUN yum -y update
 RUN yum -y groupinstall "Development Tools"
-RUN yum -y install yum-utils gcc-gfortran gcc-c++ fftw-devel which python3 python2
+RUN yum -y install yum-utils gcc-gfortran gcc-c++ fftw-devel which python3
 #
 # Link python3
-# RUN ln -s /usr/bin/python3 /usr/bin/python
+RUN ln -s /usr/bin/python3 /usr/bin/python
 # Setup Owners
 # Documents say this groupadd is needed when you build on linux, but not on Mac
 RUN groupadd --gid $GROUP_ID scec
@@ -63,12 +63,12 @@ COPY --chown=ucvm:scec basic_query.txt ./basic_query.txt
 #
 #
 # Add metadata to dockerfile using labels
-LABEL org.label-schema.build-date="20210912"
+LABEL org.label-schema.build-date="20211107"
 LABEL org.label-schema.license="BSD 3-Clause"
 LABEL org.scec.project="SCEC Unified Community Velocity Model"
 LABEL org.scec.responsible_person="Philip Maechling"
 LABEL org.scec.primary_contact="maechlin@usc.edu"
-LABEL version="ucvm_v21_10_09120154"
+LABEL version="ucvm_v21_10_1107"
 #
 # start as command line terminal
 #
