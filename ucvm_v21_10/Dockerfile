@@ -2,9 +2,26 @@
 FROM centos:8
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 
+# Define Build and runtime arguments
+ARG APP_UNAME
+ARG APP_GRPNAME
+ARG APP_UID
+ARG APP_GID
+ENV APP_UNAME=$APP_UNAME
+ENV APP_GRPNAME=$APP_GRPNAME
+ENV APP_UID=$APP_UID
+ENV APP_GID=$APP_GID
+# Retrieve the userid and groupid from the args so 
 # Define these parameters to support building and deploying on EC2 so user is not root
-ARG USER_ID=5000
-ARG GROUP_ID=200
+# ENV APP_UNAME=ucvm APP_GRPNAME=scec APP_UID=5000 APP_GID=200
+RUN echo $APP_UNAME
+RUN echo $APP_GRPNAME
+RUN echo $APP_UID
+RUN echo $APP_GID
+ARG USERNAME=$APP_UNAME
+ARG GRPNAME=$APP_GRPNAME
+ARG USER_ID=$APP_UID
+ARG GROUP_ID=$APP_GID
 
 LABEL "maintainer"="Philip Maechling <maechlin@usc.edu>" "appname"="ucvm"
 #
@@ -14,29 +31,27 @@ ENV UCVM_SRC_PATH=/app/src UCVM_INSTALL_PATH=/app/ucvm LD_LIBRARY_PATH=/app/ucvm
 ENV PYTHONPATH=/app/ucvm/utilities/pycvm
 ENV PATH="/app/ucvm/bin:/usr/bin/python2:/usr/bin/python3:${PATH}"
 #
-RUN yum clean all
-RUN yum -y update
-RUN yum -y groupinstall "Development Tools"
-RUN yum -y install yum-utils gcc-gfortran gcc-c++ fftw-devel which python3
+RUN yum clean all && yum -y update && yum -y\
+ groupinstall "Development Tools" && yum -y\
+ install yum-utils gcc-gfortran gcc-c++ fftw-devel which python3
+
 #
 # Link python3
 RUN ln -s /usr/bin/python3 /usr/bin/python
 # Setup Owners
 # Documents say this groupadd is needed when you build on linux, but not on Mac
-RUN groupadd --gid $GROUP_ID scec
-RUN useradd -ms /bin/bash -G scec --uid $USER_ID ucvm
-USER ucvm
+RUN groupadd --non-unique --gid $GROUP_ID $GRPNAME
+RUN useradd -ms /bin/bash -G $GRPNAME --uid $USER_ID $USERNAME
+USER $USERNAME
 
 WORKDIR /app
-COPY --chown=ucvm:scec ucvm/ ./src
+COPY --chown=$USERNAME:$GRPNAME ucvm/ ./src
 # An external script has posted the correct .gz model file in the largefiles dir
 # Install largefiles
 WORKDIR /app/src/largefiles
-#RUN ./get_largefiles.py
-#RUN ./check_largefiles.py
 RUN ./stage_largefiles.py
 WORKDIR /app/src
-COPY --chown=ucvm:scec setup_inputs.txt ./setup_inputs.txt
+COPY --chown=$USERNAME:$GRPNAME setup_inputs.txt ./setup_inputs.txt
 RUN ./ucvm_setup.py -a -d < setup_inputs.txt
 #
 # Remove the src directories to save space
@@ -51,25 +66,25 @@ VOLUME /app/target
 # Setup user with test input files
 #
 WORKDIR /app
-COPY --chown=ucvm:scec test_latlons.txt ./test_latlons.txt
-COPY --chown=ucvm:scec basic_query.txt ./basic_query.txt
-COPY --chown=ucvm:scec make_mesh.py ./make_mesh.py
+COPY --chown=$USERNAME:$GRPNAME test_latlons.txt ./test_latlons.txt
+COPY --chown=$USERNAME:$GRPNAME basic_query.txt ./basic_query.txt
+COPY --chown=$USERNAME:$GRPNAME make_mesh.py ./make_mesh.py
 #
 # Define directory that will be mounted and used for file input/output
 #
 WORKDIR /app/target
-COPY --chown=ucvm:scec test_latlons.txt ./test_latlons.txt
-COPY --chown=ucvm:scec basic_query.txt ./basic_query.txt
+COPY --chown=$USERNAME:$GRPNAME test_latlons.txt ./test_latlons.txt
+COPY --chown=$USERNAME:$GRPNAME basic_query.txt ./basic_query.txt
 #
 #
 # Add metadata to dockerfile using labels
-LABEL org.label-schema.build-date="20211107"
+LABEL org.label-schema.build-date="20211124"
 LABEL org.label-schema.license="BSD 3-Clause"
 LABEL org.scec.project="SCEC Unified Community Velocity Model"
 LABEL org.scec.responsible_person="Philip Maechling"
 LABEL org.scec.primary_contact="maechlin@usc.edu"
-LABEL version="ucvm_v21_10_1107"
+LABEL version="ucvm_v21_10_1124"
 #
 # start as command line terminal
 #
-CMD ["/bin/bash"]
+ENTRYPOINT ["/bin/bash"]
