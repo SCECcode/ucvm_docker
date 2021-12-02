@@ -1,15 +1,18 @@
-## Run Cmd:
-docker run --rm -it --mount type=bind,source="$(pwd)"/target,destination=/app/target  ucvm:1345
+## This directory contains the scripts used to build a docker image that can be converted to a singularity image
+There are a few differences between docker images and singularity images. Specifically, our docker images assign
+a userid:groupid to the contents, so that the programs in the container doesn't run as root. We typically assign
+the userid:groupid of the person building the image to the username in the image
+Second, the docker image bind mounts a subdirectory as a shared directory between the host and the container.
+However this causes problems for a singularity image. In particular, the cluster will typically mount
+selected directories in the image. So our docker files remove the volume command when we create them
+for use as singularity images.
 
-This is a coding and configuration test for creating a UCVM docker image that can be run on AWS.
-
-## .dockerignore file
-There is a .dockerignore file that defines which files not to include in the image. The Dockerfile and this README.md are excluded.
 
 ## Dockerfile
 This lists the steps needed to build the container.
 
 ## Contents of large_file_inputs
+
 (base) [maechlin@discovery2 largefiles]$ ./get_largefiles.py 
 Running in ./largefiles source directory. 
 This script will download and install ucvm.e, ucvm_utah.e and several other files.
