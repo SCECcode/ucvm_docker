@@ -1,1 +1,1 @@
-docker run --rm -it ucvm_1210_cvms5:11242320
+docker run --rm -it ucvm_1210_sif:1202228
