@@ -1,3 +1,3 @@
-docker image build -t py2ucvm .
-#docker tag py2ucvm mpihuisu/py2ucvm:1.2
-#docker push mpihuisu/py2ucvm:1.2
+docker image build -t py2ucvmbasin .
+docker tag py2ucvmbasin mpihuisu/py2ucvmbasin:1.0
+#docker push mpihuisu/py2ucvmbasin:1.0

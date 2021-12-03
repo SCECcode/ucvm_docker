@@ -27,7 +27,7 @@ RUN /bin/bash ./run-build-ucvm.sh && \
     cp -f /app/ucvm/conf/ucvm_env.sh /etc/profile.d/ucvm_env.sh && \
     echo ". /etc/profile.d/ucvm_env.sh" >> ~/.bashrc && \
     echo "(cd /app/ucvm_plotting; ./unpack-dist &> unpack-dist.log) " >> ~/.bashrc && \
-    echo "PS1=\"py2ucvm > \"" >> ~/.bashrc && \
+    echo "PS1=\"py2cvmsi > \"" >> ~/.bashrc && \
     echo "cd /app/target" >> ~/.bashrc
 
 ##&& rm -rf /app/ucvm

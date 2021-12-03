@@ -1,5 +1,7 @@
 # py2ucvm
 
+### This image includes the ucvm_plotting
+
 ## build an image
 
     docker image build -t py2ucvm .
