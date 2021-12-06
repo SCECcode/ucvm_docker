@@ -1,5 +1,6 @@
 
 ## make target directory
+## and run the following instructions
 
 xhost + 127.0.0.1
 
