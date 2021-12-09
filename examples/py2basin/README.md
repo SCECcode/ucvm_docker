@@ -1,15 +1,15 @@
-# py2ucvm
+# py2basin
 
 ### this image includes ucvm_plotting
 
 ## build an image
 
-    docker image build -t py2ucvm .
+    docker image build -t py2basin .
 
 ## running container from an image with a local host 'target' directory: 
 
     mkdir target
-    docker run --rm -it --mount type=bind,source="$(pwd)"/target,destination=/app/target  mpihuisu/py2ucvm:1.0
+    docker run --rm -it --mount type=bind,source="$(pwd)"/target,destination=/app/target  mpihuisu/py2basin:1.0
    
    If encounter the following error,
    
@@ -35,8 +35,8 @@
     docker rmi $(docker images -f dangling=true -q )
     docker rmi $(docker images -f dangling=true -q ) -f
 
-    docker rmi py2ucvm 
-    docker rmi py2ucvm -f 
+    docker rmi py2basin 
+    docker rmi py2basin -f 
 
 ## deep cleaning images & volumes
 
