@@ -65,7 +65,7 @@ Support for UCVM docker images is provided by that Southern California Earthquak
 We welcome contributions to the UCVM software framework. An overview of the process for contributing seismic models or software updates to the UCVM Project is provided in the [UCVM contribution](CONTRIBUTING.md) guidelines. UCVM contributors agree to abide by the code of conduct found in our [Code of Conduct](CODE_OF_CONDUCT.md) guidelines.
 
 ## Credits
-Development of UCVM is a group effort. Developers that have contributed to the UCVM docker software are listed in the [CREDITS.md](Credits.md) file in this repository.
+Development of UCVM is a group effort. Developers that have contributed to the UCVM docker software are listed in the [CREDITS.md](CREDITS.md) file in this repository.
 
 ## License
 The UCVM software is distributed under the BSD 3-Clause open-source license. Please see the [LICENSE.txt](LICENSE.txt) file for more information.
