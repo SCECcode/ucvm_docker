@@ -5,7 +5,7 @@ ENV UCVM_SRC_PATH=/app/ucvm UCVM_INSTALL_PATH=/usr/local/opt/ucvm
 WORKDIR /app
 COPY . /app
 
-RUN yum install -y wget wget bzip2 ca-certificates libglib2.0-0 libxext6 libsm6 libxrender1 mercurial subversion git gcc gcc-gfortran libtool autoconf automake make which tkinter
+RUN yum install -y wget bzip2 ca-certificates libglib2.0-0 libxext6 libsm6 libxrender1 mercurial subversion git gcc gcc-gfortran libtool autoconf automake make which tkinter
 
 RUN yum install -y xorg-x11-apps
 ENV DISPLAY host.docker.internal:0 
