@@ -11,7 +11,7 @@
 
 >>> STEP 2: get tools
 
-%sudo yum install git gcc autotools autoconf aclocal automake
+%sudo yum install git gcc autotools autoconf aclocal automake xhost
 
 if you don't have .bash_profile, add the following
 
@@ -76,6 +76,7 @@ export VERSION=3.9.1 && \
     sudo make -C ./builddir install
 
 %echo '. /usr/local/etc/bash_completion.d/singularity' >> ~/.bashrc && \
+ sudo ln -s /usr/local/etc/bash_completion.d/singularity /etc/profile.d/singularity.sh && \
  source ~/.bashrc
 
 test it,

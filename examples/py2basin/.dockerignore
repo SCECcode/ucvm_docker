@@ -1,0 +1,20 @@
+## ignored when building docker image
+Dockerfile-small
+README.md
+build_sif.sh
+build_upd.sh
+cleanup_upd.sh
+dd
+oo
+Dockerfile-complete
+Dockerfile-just-conda
+Dockerfile-small
+README.md
+build_sif.sh
+build_upd.sh
+cleanup_upd.sh
+dd
+oo
+run-build-ucvm.sh
+run-build-ucvm_plotting.sh
+test-it
