@@ -1,0 +1,26 @@
+FROM  amazonlinux
+ENV HDF5_DIR=/app/hdf5
+
+WORKDIR /app
+COPY . /app
+
+RUN amazon-linux-extras install -y python3.8 
+RUN yum install -y mkdir which tar sudo git wget openblas pip make 
+RUN sudo ln -s /usr/bin/python3.8 /usr/bin/python3
+
+# Build HDF5
+RUN mkdir /app/hdf5; cd /app/hdf5 
+RUN wget https://support.hdfgroup.org/ftp/HDF5/prev-releases/hdf5-1.10/hdf5-1.10.1/src/hdf5-1.10.1.tar.gz
+RUN tar zxf hdf5-1.10.1.tar.gz
+RUN cd hdf5-1.10.1; ./configure --prefix=/app/hdf5/
+RUN make && make install
+
+RUN python3 -m pip install setuptools wheel numpy netCDF4 pkg-config --user
+RUN python3 -m pip install h5py --user
+
+RUN cd /app && \
+    git clone https://github.com/kmaterna/InSAR_CGM_readers_writers.git && \
+    cd InSAR_CGM_readers_writers && \
+    ./setup.py install --user   
+
+CMD [ "/bin/bash" ]
