@@ -12,7 +12,7 @@ ENV DISPLAY host.docker.internal:0
 
 RUN mkdir -p /app/target && \
     echo "echo 'running with .bashrc..' " >> ~/.bashrc && \
-    echo "export PS1='$HOSTNAME >'" >> ~/.bashrc
+    echo "export PS1='inDocker >'" >> ~/.bashrc
  
 RUN wget --quiet https://repo.anaconda.com/archive/Anaconda2-2019.07-Linux-x86_64.sh -O ~/anaconda.sh && \
     /bin/bash ~/anaconda.sh -b -p /usr/local/conda && \
@@ -33,11 +33,11 @@ RUN ./run-build-ucvm.sh && \
     . ~/.bashrc && \
     ./run-build-ucvm_plotting.sh
 
-RUN /bin/cp run_plotting.sh /app/target && \
-    /bin/cp run_query.sh /app/target && \
+RUN echo "cd /app/target" >> ~/.bashrc && \
+    /bin/cp /app/run_plotting.sh /app/target && \ 
+    /bin/cp /app/run_query.sh /app/target && \ 
     /bin/rm -rf /app/ucvm && \
     /bin/rm -rf /app/ucvm_plotting && \
-    /bin/chmod -R og+r /usr/local/opt/ucvm && \
-    cd target
+    /bin/chmod -R og+r /usr/local/opt/ucvm
 
 CMD [ "/bin/bash" ]
