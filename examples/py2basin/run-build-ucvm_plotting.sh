@@ -6,4 +6,4 @@ git clone https://github.com/SCECcode/ucvm_plotting.git
 cd ucvm_plotting
 ./unpack-dist &> unpack-dist.log
 
-echo "..EXITING.."
+echo "..ucvm_plotting build, EXITING.."

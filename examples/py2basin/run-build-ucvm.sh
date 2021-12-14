@@ -29,7 +29,4 @@ cd $UCVM_SRC_PATH
 $UCVM_INSTALL_PATH
 EOF
 
-cd $UCVM_SRC_PATH/..
-git clone https://github.com/SCECcode/ucvm_plotting.git
-
-echo "..EXITING.."
+echo "..ucvm build, EXITING.."
