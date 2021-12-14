@@ -36,6 +36,8 @@ RUN ./run-build-ucvm.sh && \
 RUN echo "cd /app/target" >> ~/.bashrc && \
     echo "cp /app/run_plotting.sh /app/target" >> ~/.bashrc && \ 
     echo "cp /app/run_query.sh /app/target" >> ~/.bashrc && \ 
+    echo "cp /app/run_bashrc.sh /app/target" >> ~/.bashrc && \ 
+    /bin/cp ~/.bashrc /app/run_bashrc.sh && \
     /bin/rm -rf /app/ucvm && \
     /bin/rm -rf /app/ucvm_plotting && \
     /bin/chmod -R og+r /usr/local/opt/ucvm
