@@ -1,4 +1,7 @@
 FROM  amazonlinux
+
+## continuumio/anaconda3
+
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 ENV UCVM_SRC_PATH=/app/UCVM UCVM_INSTALL_PATH=/usr/local/opt/ucvm 
 ENV CFLAGS="-g -O0"

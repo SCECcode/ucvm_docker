@@ -1,0 +1,14 @@
+FROM  amazonlinux
+
+## build conda3 and trying to load conda2
+
+WORKDIR /app
+COPY . /app
+
+RUN amazon-linux-extras install -y python3.8
+
+RUN sudo ln -s /usr/local/python-3.8.11/bin/python3.8 /usr/bin/python3
+RUN python3 -m pip install setuptools wheel numpy netCDF4
+
+CMD [ "/bin/bash" ]
+

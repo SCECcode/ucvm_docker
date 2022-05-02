@@ -1,0 +1,84 @@
+
+>>> STEP 1: get vm
+
+--> vpn to connect.usc.edu/research
+--> dashboard to carina.usc.edu
+--> create a vm
+    amazonlinux, 60G to start, dimzet network
+    host-vm connection like>> 68.181.208.something
+
+%ssh -Y -C yourname@68.181.208.something
+
+>>> STEP 2: get tools
+
+%sudo yum install git gcc autotools autoconf aclocal automake xhost
+
+if you don't have .bash_profile, add the following
+
+%cat > .bash_profile << EOF
+# If .bash_profile exists, bash doesn't read .profile
+if [[ -f ~/.profile ]]; then
+  . ~/.profile
+fi
+
+# If the shell is interactive and .bashrc exists, get the aliases and functions
+if [[ \$- == *i* && -f ~/.bashrc ]]; then
+    . ~/.bashrc
+fi
+EOF
+
+>>> STEP 3: get docker
+
+%sudo yum install git docker 
+%sudo service docker start
+%sudo usermod -a -G docker $USER 
+
+log out and log back
+
+test it,
+%docker ps
+
+>>> STEP 4: get singularity
+
+%sudo yum update -y
+%sudo yum groupinstall -y 'Development Tools'
+%sudo yum install -y openssl-devel libuuid-devel libseccomp-devel wget squashfs-tools cryptsetup
+
+%export VERSION=1.17.5 OS=linux ARCH=amd64 && \
+    wget https://dl.google.com/go/go$VERSION.$OS-$ARCH.tar.gz && \
+    sudo tar -C /usr/local -xzvf go$VERSION.$OS-$ARCH.tar.gz && \
+    rm go$VERSION.$OS-$ARCH.tar.gz
+
+%echo 'export GOPATH=${HOME}/go' >> ~/.bashrc && \
+    echo 'export PATH=/usr/local/go/bin:${PATH}:${GOPATH}/bin' >> ~/.bashrc && \
+    source ~/.bashrc
+
+cat > hello.go << EOF
+package main
+import "fmt"
+func main() {
+	fmt.Printf("hello, world\n")
+}
+EOF
+
+test it,
+%go run hello.go
+
+
+export VERSION=3.9.1 && \
+    wget https://github.com/sylabs/singularity/releases/download/v${VERSION}/singularity-ce-${VERSION}.tar.gz && \
+    tar -xzf singularity-ce-${VERSION}.tar.gz && \
+    cd singularity-ce-${VERSION}
+
+
+%./mconfig && \
+    make -C ./builddir && \
+    sudo make -C ./builddir install
+
+%echo '. /usr/local/etc/bash_completion.d/singularity' >> ~/.bashrc && \
+ sudo ln -s /usr/local/etc/bash_completion.d/singularity /etc/profile.d/singularity.sh && \
+ source ~/.bashrc
+
+test it,
+%singularity exec library://alpine cat /etc/alpine-release
+

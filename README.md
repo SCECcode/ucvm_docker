@@ -27,34 +27,7 @@ UCVM was developed to support seismic simulations run on high-performance comput
 3.  [Installation Instructions for Linux Systems:](https://github.com/sceccode/ucvm/wiki) User can install UCVM on Linux system. Advanced users that want to install many of the UCVM models, or that want to run large parallel queries of the CVM models, should install the UCVM software on a Linux system. UCVM software is developed on USC Center for Advanced Research Computing (CARC) Linux cluster which provide MPI libraries. The UCVM software framework has several MPI-based executables. These executables are built using the automake system if the required MPI libraries are found in the installation computing environment. 
 
 ## Usage:
-UCVM Docker images contains UCVM software which can be run without a significant installation process. Users install the Docker client on their Laptops, and then use the Docker client software to run UCVM Docker images. Docker client software is available as a free software download for several operating systems including MacOS, Windows, and Linux.
-
-1. Install Docker Client on User Computer and Start Docker Client
-- Docker Client download from [Dockerhub](https://hub.docker.com)
-- Increase Docker configuration to 2 CPUs and 50GB memory
-
-2. Open a terminal window on your local computer, and create a directory where you will run UCVM.
-- mkdir /Users/maechlin/ucvm_docker
-- cd /Users/maechlin/ucvm_docker
-
-3. Create a "target" directory where UCVM files are input/output
-- cd /Users/maechlin/ucvm_docker
-- mkdir target
-- ls /Users/maechlin/ucvm_docker/target
-
-4. Open a terminal window and start the UCVM Docker image using the docker run command below. The UCVM image will be downloaded from Dockerhub. The image is about 6GB so download time may be minutes or longer.
-- docker run --rm -it --mount type=bind,source="$(pwd)"/target,destination=/app/target  sceccode/ucvm_1210_cvms5:09131731
-
-5. The images starts and users sees a Linux bash shell command line prompt as user "ucvm" in directory: /app/target
- 
-7. Run a ucvm_query test query
-- $ucvm_query -f /app/ucvm/conf/ucvm.conf -m cvmh < /app/test_latlons.txt
-
-8. Create your own test_latlons.txt in your "target" directory
-- Files saved to "target" will be saved after container exits. So put any input or outputs in the "target" directory. 
-- If you edit the /app/ucvm/conf/ucvm.conf file, since that file is in the container file system, file edits will be lost when the container exits.
-
-Once installed, UCVM provides an executable program, called ucvm_query, that implements a query interface to multiple seismic velocity models.
+This repository contains the software and scripts required to build UCVM Docker Images. For instructions on how to run UCVM Docker images, please see the documentation in the [core UCVM GitHub repository:](https://github.com/SCECcode/ucvm/wiki)
 
 ## Support:
 Support for UCVM docker images is provided by that Southern California Earthquake Center (SCEC) Research Computing Group. This group supports several research software distributions including UCVM. Users can report issues and feature requests using UCVM's github-based issue tracking link below. Developers will also respond to emails sent to the SCEC software contact listed below.
@@ -65,7 +38,7 @@ Support for UCVM docker images is provided by that Southern California Earthquak
 We welcome contributions to the UCVM software framework. An overview of the process for contributing seismic models or software updates to the UCVM Project is provided in the [UCVM contribution](CONTRIBUTING.md) guidelines. UCVM contributors agree to abide by the code of conduct found in our [Code of Conduct](CODE_OF_CONDUCT.md) guidelines.
 
 ## Credits
-Development of UCVM is a group effort. Developers that have contributed to the UCVM docker software are listed in the [CREDITS.md](Credits.md) file in this repository.
+Development of UCVM is a group effort. Developers that have contributed to the UCVM docker software are listed in the [CREDITS.md](CREDITS.md) file in this repository.
 
 ## License
 The UCVM software is distributed under the BSD 3-Clause open-source license. Please see the [LICENSE.txt](LICENSE.txt) file for more information.

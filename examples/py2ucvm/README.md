@@ -1,5 +1,7 @@
 # py2ucvm
 
+### this image includes ucvm_plotting
+
 ## build an image
 
     docker image build -t py2ucvm .
@@ -7,7 +9,7 @@
 ## running container from an image with a local host 'target' directory: 
 
     mkdir target
-    docker run --rm -it --mount type=bind,source="$(pwd)"/target,destination=/app/target  py2ucvm
+    docker run --rm -it --mount type=bind,source="$(pwd)"/target,destination=/app/target  mpihuisu/py2ucvm:1.0
    
    If encounter the following error,
    

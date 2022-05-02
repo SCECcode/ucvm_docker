@@ -35,6 +35,11 @@ RUN ./ucvm_setup.py -a -d < setup_inputs.txt
 WORKDIR /app
 RUN rm -rf src
 #
+# Make sure all files are globally readable
+#
+WORKDIR /app
+RUN chmod -R og+r ucvm
+#
 # Setup user with test input files
 #
 WORKDIR /app

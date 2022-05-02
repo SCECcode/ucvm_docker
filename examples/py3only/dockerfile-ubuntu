@@ -1,0 +1,27 @@
+FROM  ubuntu:18.04
+
+WORKDIR /app
+COPY . /app
+
+#RUN apt-get update 
+#RUN apt-get install python3.8
+
+RUN apt-get update && apt-get install python3.8-dev
+
+RUN apt-get gcc mkdir which sudo git wget openblas pip make 
+
+RUN sudo ln -s /usr/bin/python3.8 /usr/bin/python3
+RUN apt-get  install setuptools wheel numpy netCDF4
+
+RUN apt-get install -y hdf5-devel
+
+RUN apt-get h5py 
+
+#RUN cd /app && \
+#    git clone https://github.com/kmaterna/InSAR_CGM_readers_writers.git && \
+#    cd InSAR_CGM_readers_writers && \
+#    ./setup.py install --user   
+
+CMD [ "/bin/bash" ]
+
+CMD [ "/bin/bash" ]

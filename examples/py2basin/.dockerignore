@@ -1,0 +1,9 @@
+## ignored when building docker image
+README.md
+build_sif.sh
+build_upd.sh
+cleanup_upd.sh
+README.md
+build_sif.sh
+build_upd.sh
+cleanup_upd.sh

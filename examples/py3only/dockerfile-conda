@@ -1,0 +1,23 @@
+FROM  amazonlinux
+ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
+ENV PATH=/usr/local/opt/conda/bin::/usr/local/opt/conda/condabin:$PATH
+
+WORKDIR /app
+COPY . /app
+
+RUN yum install -y wget bzip2 git gcc file 
+
+RUN wget --quiet https://repo.anaconda.com/archive/Anaconda3-2019.10-Linux-x86_64.sh -O ~/anaconda.sh && \
+    /bin/bash ~/anaconda.sh -b -p /usr/local/opt/conda && \
+    rm ~/anaconda.sh && \
+    ln -s /usr/local/opt/conda/etc/profile.d/conda.sh /etc/profile.d/conda.sh && \
+    echo ". /usr/local/opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc && \
+    echo "conda activate base" >> ~/.bashrc && \
+    find /usr/local/opt/conda/ -follow -type f -name '*.a' -delete && \
+    find /usr/local/opt/conda/ -follow -type f -name '*.js.map' -delete && \
+    /usr/local/opt/conda/bin/conda clean -afy
+
+## python basemap, basemap-data-hires, matplotlib
+RUN /usr/local/opt/conda/bin/conda install -y matplotlib
+
+CMD [ "/bin/bash" ]
