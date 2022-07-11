@@ -1,1 +1,0 @@
-ucvm_query -f /app/ucvm/conf/ucvm.conf -m cvms < test_latlons.txt > test_results.log

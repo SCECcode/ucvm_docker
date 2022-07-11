@@ -1,0 +1,3 @@
+ucvm_query -f /app/ucvm/conf/ucvm.conf -m cvmh < querypts.txt
+vs30_query -f /app/ucvm/conf/ucvm.conf -m cvmh < querypts.txt
+vs30_query -f /app/ucvm/conf/ucvm.conf -m cvms5,elygtl:ely -z 0,350 < vs30pts.txt

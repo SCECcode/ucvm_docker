@@ -1,9 +1,0 @@
-.git
-.gitignore
-docker-compose*
-README.md
-LICENSE
-was.dockerfile
-was.dockerfile_tues
-target
-models
