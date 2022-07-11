@@ -27,7 +27,7 @@ UCVM was developed to support seismic simulations run on high-performance comput
 3.  [Installation Instructions for Linux Systems:](https://github.com/sceccode/ucvm/wiki) User can install UCVM on Linux system. Advanced users that want to install many of the UCVM models, or that want to run large parallel queries of the CVM models, should install the UCVM software on a Linux system. UCVM software is developed on USC Center for Advanced Research Computing (CARC) Linux cluster which provide MPI libraries. The UCVM software framework has several MPI-based executables. These executables are built using the automake system if the required MPI libraries are found in the installation computing environment. 
 
 ## Usage:
-This repository contains the software and scripts required to build UCVM Docker Images. For instructions on how to run UCVM Docker images, please see the documentation in the [core UCVM GitHub repository:](https://github.com/SCECcode/ucvm/wiki)
+This repository contains the software and scripts required to run UCVM Docker images. The scripts used to create the docker images are located in SCEC's [create_ucvm_docker GitHub repository:](https://github.com/SCECcode/create_ucvm_docker/wiki)
 
 ## Support:
 Support for UCVM docker images is provided by that Southern California Earthquake Center (SCEC) Research Computing Group. This group supports several research software distributions including UCVM. Users can report issues and feature requests using UCVM's github-based issue tracking link below. Developers will also respond to emails sent to the SCEC software contact listed below.
