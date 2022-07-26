@@ -12,6 +12,8 @@ UCVM was developed as an interdisciplinary research collaboration involving geos
 
 UCVM is open-source scientific software designed to support earth scientists, civil engineers, and other groups interested in detailed information about earth properties. UCVM is primarily used by scientists to work with earth material properties on regional scales. One important use of UCVM is to create simulation meshes used in high resolution 3D wave propagation simulations.
 
+This repository contains the software and scripts required to run UCVM Docker images. The scripts used to create the docker images are located in SCEC's [create_ucvm_docker GitHub repository:](https://github.com/SCECcode/create_ucvm_docker/wiki)
+
 ## Table of Contents:
 1. [Software Documentation](https://github.com/SCECcode/ucvm_docker/wiki)
 2. [Installation](#installation)
@@ -27,7 +29,11 @@ UCVM was developed to support seismic simulations run on high-performance comput
 3.  [Installation Instructions for Linux Systems:](https://github.com/sceccode/ucvm/wiki) User can install UCVM on Linux system. Advanced users that want to install many of the UCVM models, or that want to run large parallel queries of the CVM models, should install the UCVM software on a Linux system. UCVM software is developed on USC Center for Advanced Research Computing (CARC) Linux cluster which provide MPI libraries. The UCVM software framework has several MPI-based executables. These executables are built using the automake system if the required MPI libraries are found in the installation computing environment. 
 
 ## Usage:
-This repository contains the software and scripts required to run UCVM Docker images. The scripts used to create the docker images are located in SCEC's [create_ucvm_docker GitHub repository:](https://github.com/SCECcode/create_ucvm_docker/wiki)
+To run a UCVM Docker image, the user should start a docker client on their current system. They should open a terminal window on their system and select a directory where they want to run UCVM. Then, they should create a subdirectory called "target". This directory will be used to transfer files from the Docker container to and from the user's computer. Then, users invoke a "docker run ..." command to start the image. If the image is not available on their local system, it will be downloaded from Dockerhub.
+
+$ docker run --rm -it --mount type=bind,source="$(pwd)"/target,destination=/app/target  sceccode/ucvm_227_cvms5:0710
+
+More information about running UCVM Docker images is available in the in the wiki section of this repository at [Software Documentation](https://github.com/SCECcode/ucvm_docker/wiki)
 
 ## Support:
 Support for UCVM docker images is provided by that Southern California Earthquake Center (SCEC) Research Computing Group. This group supports several research software distributions including UCVM. Users can report issues and feature requests using UCVM's github-based issue tracking link below. Developers will also respond to emails sent to the SCEC software contact listed below.
