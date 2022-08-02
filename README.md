@@ -33,10 +33,10 @@ To run a UCVM Docker image, the user should start a docker client on their curre
 
 $ docker run --rm -it --mount type=bind,source="$(pwd)"/target,destination=/app/target  sceccode/ucvm_227_cvms5:0710
 
-More information about running UCVM Docker images is available in the in the wiki section of this repository at [UCVM Docker Software Documentation](https://github.com/SCECcode/ucvm_docker/wiki)
+More information about running UCVM Docker images is available in the wiki section of this repository at [UCVM Docker Software Documentation](https://github.com/SCECcode/ucvm_docker/wiki)
 
 ## Support:
-Support for UCVM docker images is provided by that Southern California Earthquake Center (SCEC) Research Computing Group. This group supports several research software distributions including UCVM. Users can report issues and feature requests using UCVM's github-based issue tracking link below. Developers will also respond to emails sent to the SCEC software contact listed below.
+Support for UCVM docker images is provided by the Southern California Earthquake Center (SCEC) Research Computing Group. This group supports several research software distributions including UCVM. Users can report issues and feature requests using UCVM's github-based issue tracking link below. Developers will also respond to emails sent to the SCEC software contact listed below.
 1. [UCVM Docker Github Issue Tracker:](https://github.com/SCECcode/ucvm_docker/issues)
 2. Email Contact: software@scec.usc.edu
 
