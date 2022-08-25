@@ -5,7 +5,7 @@
 
 <a href="http://www.scec.org/research"><img src="https://github.com/sceccode/ucvm_docker/wiki/images/ucvm_docker_logo.png"></a>
 
-## Description: 
+## Description 
 The SCEC Unified Community Velocity Model (UCVM) software framework is a collection of software tools that provide a standard query interface to seismic velocity models. Once a seismic velocity model is registered into UCVM, it can be queried and combined with other velocity models through the UCVM software interface.
 
 UCVM was developed as an interdisciplinary research collaboration involving geoscientists and computer scientists. UCVM geoscience research includes identification and assembly of existing California velocity models into a state-wide model and improvements to existing velocity models. UCVM computer science research includes definition of a easy-to-use CVM query interface, integration of regional 3D and geotechnical models, and automated CVM evaluation processing capabilities.
@@ -14,7 +14,7 @@ UCVM is open-source scientific software designed to support earth scientists, ci
 
 This repository contains the software and scripts required to run UCVM Docker images. The scripts used to create the docker images are located in SCEC's [create_ucvm_docker GitHub repository:](https://github.com/SCECcode/create_ucvm_docker/wiki)
 
-## Table of Contents:
+## Table of Contents
 1. [Software Documentation](https://github.com/SCECcode/ucvm_docker/wiki)
 2. [Installation](#installation)
 3. [Usage](#usage)
@@ -22,20 +22,20 @@ This repository contains the software and scripts required to run UCVM Docker im
 5. [Credits](#credit)
 6. [License](#license)
 
-## UCVM Installation Options:
+## UCVM Installation Options
 UCVM was developed to support seismic simulations run on high-performance computing systems, so it is designed to compile and run on Linux-based computers. Before installing UCVM, they should be aware that there are several ways to get access to UCVM without installing the software on your own Linux computer. Below we outline several of the options:
 1. [SCEC UCVM Web viewer:](http://moho.scec.org/UCVM_web/web/viewer.php) Users can query UCVM velocity models, without installing UCVM, using the UCVM website. 
 2. [UCVM Docker Images](https://github.com/sceccode/ucvm_docker/wiki) Users can run UCVM in Docker on their local computers including laptops. Users can install free Docker software on most computers (e.g. Linux, MacOS, Windows) then run an UCVM Docker image in a terminal window on their computer. 
 3.  [Installation Instructions for Linux Systems:](https://github.com/sceccode/ucvm/wiki) User can install UCVM on Linux system. Advanced users that want to install many of the UCVM models, or that want to run large parallel queries of the CVM models, should install the UCVM software on a Linux system. UCVM software is developed on USC Center for Advanced Research Computing (CARC) Linux cluster which provide MPI libraries. The UCVM software framework has several MPI-based executables. These executables are built using the automake system if the required MPI libraries are found in the installation computing environment. 
 
-## Usage:
+## Usage
 To run a UCVM Docker image, the user should start a docker client on their current system. They should open a terminal window on their system and select a directory where they want to run UCVM. Then, they should create a subdirectory called "target". This directory will be used to transfer files from the Docker container to and from the user's computer. Then, users invoke a "docker run ..." command to start the image. If the image is not available on their local system, it will be downloaded from Dockerhub.
 
 $ docker run --rm -it --mount type=bind,source="$(pwd)"/target,destination=/app/target  sceccode/ucvm_227_cvms5:0710
 
 More information about running UCVM Docker images is available in the wiki section of this repository at [UCVM Docker Software Documentation](https://github.com/SCECcode/ucvm_docker/wiki)
 
-## Support:
+## Support
 Support for UCVM docker images is provided by the Southern California Earthquake Center (SCEC) Research Computing Group. This group supports several research software distributions including UCVM. Users can report issues and feature requests using UCVM's github-based issue tracking link below. Developers will also respond to emails sent to the SCEC software contact listed below.
 1. [UCVM Docker Github Issue Tracker:](https://github.com/SCECcode/ucvm_docker/issues)
 2. Email Contact: software@scec.usc.edu
