@@ -31,7 +31,7 @@ This repository contains the software and scripts required to run UCVM Docker im
 ## Usage
 To run a UCVM Docker image, the user should start a docker client on their current system. They should open a terminal window on their system and select a directory where they want to run UCVM. Then, they should create a subdirectory called "target". This directory will be used to transfer files from the Docker container to and from the user's computer. Then, users invoke a "docker run ..." command to start the image. If the image is not available on their local system, it will be downloaded from Dockerhub.
 
-$ docker run --rm -it --mount type=bind,source="$(pwd)"/target,destination=/app/target  sceccode/ucvm_227_cvms5:0710
+$ docker run --rm -it --mount type=bind,source="$(pwd)"/target,destination=/app/target  sceccode/ucvm_257_cvmsi:0801
 
 More information about running UCVM Docker images is available in the wiki section of this repository at [UCVM Docker Software Documentation](https://github.com/SCECcode/ucvm_docker/wiki)
 
